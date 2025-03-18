@@ -1,0 +1,38 @@
+---
+title: "About Me"
+sidebar: false 
+---
+
+![](assets/images/indir.jpg){fig-align="center"}
+
+# Education
+
+-   B.S., Industrial Engineering, Gazi University, Türkiye, 2019 - 2024.
+-   M.S., Industrial Engineering, Hacettepe University, Türkiye, 2025 - ongoing.
+
+
+# Work Experience
+
+
+## Internships
+
+1.  Pi Makina, Production Planning Intern, 2022
+
+2.  Vakıfbank,  Buisness Analyst Intern, 2023
+
+3.  Nurol Teknoloji, Project Intern, 2024
+
+# Projects
+
+1.   MAN Türkiye, Graduation Project 
+
+2.  TürkŞeker Ankara Machinery Factory, Quality Control and Planning Project
+
+3.  Türkiye Sugar Factory, Ergonomics Project
+
+
+# Competencies
+
+R, Quarto, AutoCAD, CaniasERP, MS Project
+
+
