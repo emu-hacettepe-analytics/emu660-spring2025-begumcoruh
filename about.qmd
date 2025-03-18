@@ -3,7 +3,6 @@ title: "About Me"
 sidebar: false 
 ---
 
-<<<<<<< HEAD
 ![](assets/images/indir.jpg){fig-align="center"}
 
 # Education
@@ -11,10 +10,8 @@ sidebar: false
 -   B.S., Industrial Engineering, Gazi University, Türkiye, 2019 - 2024.
 -   M.S., Industrial Engineering, Hacettepe University, Türkiye, 2025 - ongoing.
 
-
 # Work Experience
     
-
 ## Internships
 
 1.  Pi Makina, Production Planning Intern, 2022
