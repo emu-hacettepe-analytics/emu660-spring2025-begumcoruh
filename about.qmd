@@ -3,6 +3,7 @@ title: "About Me"
 sidebar: false 
 ---
 
+<<<<<<< HEAD
 ![](assets/images/indir.jpg){fig-align="center"}
 
 # Education
@@ -34,5 +35,3 @@ sidebar: false
 # Competencies
 
 R, Quarto, AutoCAD, CaniasERP, MS Project
-
-
