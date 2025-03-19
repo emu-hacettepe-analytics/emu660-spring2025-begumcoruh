@@ -2,9 +2,11 @@
 title: "Assignment 1"
 ---
 
-\*\*Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler\*\*YouTube videosunda Mustafa Aydoğan ve Erdi Daşdemir, deneyimlerini veri bilimi, makine öğrenimi ve optimizasyon ile tartışıyor.  Envanter yönetimi, tedarik zinciri optimizasyonu gibi sorunların üstesinden gelirken verilerin ön işlenmesinin ve uygun makine öğrenimi yaklaşımlarının seçilmesinin önemini
-vurguluyorlar.  Ayrıca tahmin yarışmalarına katılımları, enerji endüstrisindeki uzmanlıkları ve çevrimiçi
-öğrenmenin önemi hakkında konuşuldu. Genel olarak konuşursak, erken başlamanın, sebat etmenin ve güncel olmanın değerini vurgulandı.
+**Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler**
+
+YouTube videosunda Mustafa Aydoğan ve Erdi Daşdemir, deneyimlerini veri bilimi, makine öğrenimi ve optimizasyon ile tartışıyor.  Envanter yönetimi, tedarik zinciri optimizasyonu gibi sorunların üstesinden gelirken verilerin ön işlenmesinin ve uygun makine öğrenimi yaklaşımlarının seçilmesinin önemini vurguluyorlar.  Ayrıca tahmin yarışmalarına katılımları, enerji endüstrisindeki uzmanlıkları ve çevrimiçi öğrenmenin önemi hakkında konuşuldu. Genel olarak konuşursak, erken başlamanın, sebat etmenin ve güncel olmanın değerini vurgulandı.
+
+**MTCARS Analizi**
 
 ```{r}
 library(dslabs)
@@ -35,8 +37,54 @@ print(result)
 
 ```
 
-ölkmlşç.
+```{r}
+data(mtcars)
+
+#compute_stats fonksiyonunu oluşturuldu
+compute_stats <- function(x) {
+  
+  statistics_list <- list(
+    mean = mean(x),       # Ortalama değer
+    median = median(x),   # Medyan değeri
+    variance = var(x),    # Varyans değeri
+    IQR = IQR(x),         # Çeyrekler arası açıklık (IQR) değeri
+    min = min(x),         # Minimum değer
+    max = max(x)          # Maksimum değer
+  )
+  
+  return(statistics_list)
+}
+
+# Her satırın istatistiksel değerleri için for döngüsü eklendi
+for (column_name in colnames(mtcars)) {
+  
+  
+
+    # Sütun adıyla birlikte sonuçlar yazdırıldı
+    print(paste(column_name,"icin istatistikler"))
+    print(compute_stats(mtcars$mpg))
+}
+
+
+```
 
 ```{r}
+library(dslabs)
+data(mtcars)
+compute_stats <- function(x) {
+  #birden fazla değeri c'de birleştirdik
+  c(mean = mean(x), 
+    median = median(x), 
+    variance = var(x), 
+    IQR = IQR(x), 
+    min = min(x), 
+    max = max(x))
+}
+
+# Fonksiyonu tüm satırlar için uygula
+sapply(mtcars, compute_stats)
+
+# Fonksiyonu tüm satırlar için uygula (satır bazlı işlemlerde margin değeri 1 alınır, sütün bazlı işlemlerde ise 2)
+apply(mtcars,2,  compute_stats)
 
 ```
