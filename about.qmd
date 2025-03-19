@@ -31,3 +31,5 @@ sidebar: false
 # Competencies
 
 R, Quarto, AutoCAD, CaniasERP, MS Project
+
+[***Learn More -\>***]{style="color:Green"} [Download CV](assets/files/CV.pdf)

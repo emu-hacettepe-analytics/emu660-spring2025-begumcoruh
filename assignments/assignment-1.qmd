@@ -2,8 +2,41 @@
 title: "Assignment 1"
 ---
 
-\*\*"Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler"\*\*
-
-YouTube videosunda Mustafa Aydoğan ve Erdi Daşdemir, deneyimlerini veri bilimi, makine öğrenimi ve optimizasyon ile tartışıyor.  Envanter yönetimi, tedarik zinciri optimizasyonu gibi sorunların üstesinden gelirken verilerin ön işlenmesinin ve uygun makine öğrenimi yaklaşımlarının seçilmesinin önemini
+\*\*Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler\*\*YouTube videosunda Mustafa Aydoğan ve Erdi Daşdemir, deneyimlerini veri bilimi, makine öğrenimi ve optimizasyon ile tartışıyor.  Envanter yönetimi, tedarik zinciri optimizasyonu gibi sorunların üstesinden gelirken verilerin ön işlenmesinin ve uygun makine öğrenimi yaklaşımlarının seçilmesinin önemini
 vurguluyorlar.  Ayrıca tahmin yarışmalarına katılımları, enerji endüstrisindeki uzmanlıkları ve çevrimiçi
 öğrenmenin önemi hakkında konuşuldu. Genel olarak konuşursak, erken başlamanın, sebat etmenin ve güncel olmanın değerini vurgulandı.
+
+```{r}
+library(dslabs)
+data(mtcars)
+#compute_stats fonksiyonunu oluşturuldu
+compute_stats <- function(x) {
+  if (!is.numeric(x)) {
+    stop("Girdi sayısal bir vektör olmalıdır.") #Input değeri vektör değilse fonksiyonu durduracak şekilde koşullu durum eklendi
+  }
+  #İstenilen istatistiksel değerler liste haline getirildi
+  statistics_list <- list(
+    mean = mean(x),       # Ortalama değer
+    median = median(x),   # Medyan değeri
+    variance = var(x),    # Varyans değeri
+    IQR = IQR(x),         # Çeyrekler arası açıklık (IQR) değeri
+    min = min(x),         # Minimum değer
+    max = max(x)          # Maksimum değer
+  )
+  
+  return(statistics_list)
+}
+
+# mtcars veri setindeki 'hp' sütunu üzerinde fonksiyonu test edelim
+result <- compute_stats(mtcars$hp)
+# Sonuçları ekrana yazdıralım
+print(result)
+
+
+```
+
+ölkmlşç.
+
+```{r}
+
+```
