@@ -2,7 +2,9 @@
 title: "Welcome to My Analytics Lab"
 ---
 
+::: {style="text-align: center;"}
 <img src="https://media.tenor.com/XUJXk48l7W4AAAAM/weehee.gif" width="300"/>
+:::
 
 Hello!! My name is Begüm
 
