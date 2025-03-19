@@ -88,3 +88,22 @@ sapply(mtcars, compute_stats)
 apply(mtcars,2,  compute_stats)
 
 ```
+**NA Example**
+```{r}
+library(dslabs)
+
+# na_example veri setini yükle
+data("na_example")
+
+# Veri setini görüntüle
+print(na_example)
+```
+
+
+
+```
+
+
+
+
+
