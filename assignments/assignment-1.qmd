@@ -2,9 +2,9 @@
 title: "Assignment 1"
 ---
 
-**Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler**
+**Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler - Mustafa Baydoğan & Erdi Daşdemir**
 
-YouTube videosunda Mustafa Aydoğan ve Erdi Daşdemir, deneyimlerini veri bilimi, makine öğrenimi ve optimizasyon ile tartışıyor.  Envanter yönetimi, tedarik zinciri optimizasyonu gibi sorunların üstesinden gelirken verilerin ön işlenmesinin ve uygun makine öğrenimi yaklaşımlarının seçilmesinin önemini vurguluyorlar.  Ayrıca tahmin yarışmalarına katılımları, enerji endüstrisindeki uzmanlıkları ve çevrimiçi öğrenmenin önemi hakkında konuşuldu. Genel olarak konuşursak, erken başlamanın, sebat etmenin ve güncel olmanın değerini vurgulandı.
+Mustafa Baydoğan and Erdi Daşdemir discuss various topics related to data science and industrial engineering in their YouTube chats. They share their background and experience in the field, including data analysis, machine learning and optimisation research. Another topic they addressed was the preference for certain types of wood in the construction industry, namely straight and trapezoidal timber. They emphasised the importance of understanding the underlying reasons for these characteristics in order to use wood effectively in construction projects. The talk also covered the importance of data pre-processing, especially in the context of image analysis, machine learning algorithms, and the differences between traditional and deep learning. They discussed the importance of understanding the problem at hand and selecting appropriate machine learning techniques to create effective industry solutions. In addition, they emphasised the importance of making accurate predictions in the market to maintain balance. Overall, they emphasised the importance of both traditional and deep learning methods in data science and the importance of understanding the underlying problem at hand and choosing the appropriate techniques to create effective industry solutions. They also explore methods to minimise errors in regression analysis and to improve optimisation methods used in machine learning. They talk about the importance of gaining expertise in data science through practical applications, experience and formal education. In another part of the talk, they share their experiences in the energy sector and participate in forecasting competitions. They emphasise the importance of continuous learning, collaboration and knowledge sharing on the web. Throughout the talk, they emphasise the importance of starting early, being persistent and staying up-to-date with the latest research and technologies in their field.
 
 **MTCARS Analizi**
 
@@ -98,7 +98,75 @@ data("na_example")
 # Veri setini görüntüle
 print(na_example)
 ```
+```{r}
+library(dslabs)
+data(na_example)
 
+# NA değerlerinin toplam sayısını bul
+total_na <- sum(is.na(na_example))
+total_na  # Toplam NA sayısını ekrana yazdırır
+
+# NA değerlerinin indekslerini bul
+na_indices <- which(is.na(na_example))
+na_indices  # NA değerlerinin indeks pozisyonlarını ekrana yazdırır
+```
+
+```{r}
+library(dslabs)
+data(na_example)
+
+# NA değerleri göz ardı edilerek ortalama ve standart sapma hesapla
+mean <- mean(na_example, na.rm = TRUE)
+std_dev <- sd(na_example, na.rm = TRUE)
+
+# Sonuçları görüntüle
+mean
+std_dev
+```
+```{r}
+library(dslabs)
+data(na_example)
+
+# NA değerlerinin medyan ile değiştirilmesi
+replace_na_with_median <- function(x) {
+  # Sadece NA değerlerinin olduğu kısımları medyan ile değiştir
+  median_value <- median(x, na.rm = TRUE)  # NA'ları göz ardı ederek medyan hesapla
+  x[is.na(x)] <- median_value  # NA olan yerleri medyan ile değiştir
+  return(x)
+}
+
+# Version 1: NA'ları medyan ile değiştirilmiş veri seti
+na_example<- replace_na_with_median(na_example)
+
+# Sonuçları göster
+na_example
+```
+
+
+```{r}
+library(dslabs)
+data(na_example)
+
+# NA değerlerini rastgele bir non-NA değer ile değiştirme fonksiyonu
+replace_na_with_random <- function(x) {
+  # Geçerli (non-NA) değerleri al
+  non_na_values <- x[!is.na(x)]
+  
+  # Eğer hiç geçerli değer yoksa hata verme
+  if (length(non_na_values) == 0) {
+    stop("Veri setinde hiç geçerli (non-NA) değer bulunamadı.")
+  }
+  
+  # Her NA değerine rastgele bir non-NA değer atama
+  x[is.na(x)] <- sample(non_na_values, sum(is.na(x)), replace = TRUE)
+  return(x)
+}
+
+# Version 2: NA'ları rastgele bir geçerli değer ile değiştirilmiş veri seti
+na_example <- replace_na_with_random(na_example)
+
+# Sonuçları göster
+print(na_example)
 
 
 ```

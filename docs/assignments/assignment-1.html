@@ -236,8 +236,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler</strong></p>
-<p>YouTube videosunda Mustafa Aydoğan ve Erdi Daşdemir, deneyimlerini veri bilimi, makine öğrenimi ve optimizasyon ile tartışıyor.&nbsp; Envanter yönetimi, tedarik zinciri optimizasyonu gibi sorunların üstesinden gelirken verilerin ön işlenmesinin ve uygun makine öğrenimi yaklaşımlarının seçilmesinin önemini vurguluyorlar.&nbsp; Ayrıca tahmin yarışmalarına katılımları, enerji endüstrisindeki uzmanlıkları ve çevrimiçi öğrenmenin önemi hakkında konuşuldu.&nbsp;Genel olarak konuşursak, erken başlamanın, sebat etmenin ve güncel olmanın değerini vurgulandı.</p>
+<p><strong>Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler - Mustafa Baydoğan &amp; Erdi Daşdemir</strong></p>
+<p>Mustafa Baydoğan and Erdi Daşdemir discuss various topics related to data science and industrial engineering in their YouTube chats. They share their background and experience in the field, including data analysis, machine learning and optimisation research. Another topic they addressed was the preference for certain types of wood in the construction industry, namely straight and trapezoidal timber. They emphasised the importance of understanding the underlying reasons for these characteristics in order to use wood effectively in construction projects. The talk also covered the importance of data pre-processing, especially in the context of image analysis, machine learning algorithms, and the differences between traditional and deep learning. They discussed the importance of understanding the problem at hand and selecting appropriate machine learning techniques to create effective industry solutions. In addition, they emphasised the importance of making accurate predictions in the market to maintain balance. Overall, they emphasised the importance of both traditional and deep learning methods in data science and the importance of understanding the underlying problem at hand and choosing the appropriate techniques to create effective industry solutions. They also explore methods to minimise errors in regression analysis and to improve optimisation methods used in machine learning. They talk about the importance of gaining expertise in data science through practical applications, experience and formal education. In another part of the talk, they share their experiences in the energy sector and participate in forecasting competitions. They emphasise the importance of continuous learning, collaboration and knowledge sharing on the web. Throughout the talk, they emphasise the importance of starting early, being persistent and staying up-to-date with the latest research and technologies in their field.</p>
 <p><strong>MTCARS Analizi</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
@@ -626,7 +626,152 @@ max      1.0000000 1.0000000 5.0000000 8.000000</code></pre>
  [985]  2  4  3  3  3 NA  1  1  2  2  1  1  2  2 NA  2</code></pre>
 </div>
 </div>
-<p>```</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(na_example)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># NA değerlerinin toplam sayısını bul</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>total_na <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(na_example))</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>total_na  <span class="co"># Toplam NA sayısını ekrana yazdırır</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 145</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># NA değerlerinin indekslerini bul</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>na_indices <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">is.na</span>(na_example))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>na_indices  <span class="co"># NA değerlerinin indeks pozisyonlarını ekrana yazdırır</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1]  12  17  27  50  51  52  59  65  66  68  91 117 125 126 127 128 139 140
+ [19] 141 142 153 158 168 169 172 179 189 190 203 205 207 208 212 214 237 241
+ [37] 243 244 253 257 265 267 269 279 282 287 290 298 310 325 326 330 341 348
+ [55] 361 374 392 395 397 407 410 437 443 446 461 468 470 490 496 505 527 536
+ [73] 539 553 561 576 578 589 599 603 609 616 618 620 630 633 636 641 652 653
+ [91] 666 667 668 677 680 687 691 695 701 726 734 735 736 745 746 747 748 751
+[109] 756 762 767 788 789 807 821 826 832 838 843 844 845 849 850 853 859 869
+[127] 887 892 893 906 909 911 918 924 925 939 943 950 962 965 966 968 979 990
+[145] 999</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(na_example)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># NA değerleri göz ardı edilerek ortalama ve standart sapma hesapla</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(na_example, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>std_dev <span class="ot">&lt;-</span> <span class="fu">sd</span>(na_example, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Sonuçları görüntüle</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.301754</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>std_dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.22338</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(na_example)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># NA değerlerinin medyan ile değiştirilmesi</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>replace_na_with_median <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sadece NA değerlerinin olduğu kısımları medyan ile değiştir</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  median_value <span class="ot">&lt;-</span> <span class="fu">median</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)  <span class="co"># NA'ları göz ardı ederek medyan hesapla</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  x[<span class="fu">is.na</span>(x)] <span class="ot">&lt;-</span> median_value  <span class="co"># NA olan yerleri medyan ile değiştir</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Version 1: NA'ları medyan ile değiştirilmiş veri seti</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>na_example<span class="ot">&lt;-</span> <span class="fu">replace_na_with_median</span>(na_example)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Sonuçları göster</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>na_example</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   [1] 2 1 3 2 1 3 1 4 3 2 2 2 2 2 1 4 2 1 1 2 1 2 2 1 2 5 2 2 2 3 1 2 4 1 1 1 4
+  [38] 5 2 3 4 1 2 4 1 1 2 1 5 2 2 2 1 1 5 1 3 1 2 4 4 7 3 2 2 2 1 2 4 1 2 2 3 2
+  [75] 1 2 2 4 3 4 2 3 1 3 2 1 1 1 3 1 2 3 1 2 2 1 2 2 1 1 4 1 1 2 3 3 2 2 3 3 3
+ [112] 4 1 1 1 2 2 4 3 4 3 1 2 1 2 2 2 2 1 5 1 2 1 3 5 3 2 2 2 2 2 2 3 5 3 1 1 4
+ [149] 2 4 3 3 2 2 3 2 6 2 1 1 2 2 1 3 1 1 5 2 2 2 4 2 2 5 1 4 3 3 2 4 3 1 4 1 1
+ [186] 3 1 1 2 2 3 5 2 2 2 3 1 2 2 3 2 1 2 2 2 1 2 2 2 1 1 2 3 2 1 2 2 1 3 2 2 1
+ [223] 1 2 3 1 1 1 4 3 4 2 2 1 4 1 2 5 1 4 2 3 2 2 1 1 5 2 3 3 2 4 2 3 2 5 2 2 3
+ [260] 4 6 2 2 2 2 2 2 2 2 3 3 2 2 4 3 1 4 2 2 2 4 2 6 2 3 1 2 2 2 2 1 1 3 2 3 3
+ [297] 1 2 1 4 2 1 1 3 2 1 2 3 1 2 2 3 3 2 1 2 3 5 5 1 2 3 3 1 2 2 1 2 4 2 2 1 1
+ [334] 1 3 2 1 1 3 4 2 1 2 1 1 3 3 2 1 1 3 5 3 2 3 4 1 4 3 1 2 2 1 2 2 1 2 2 6 1
+ [371] 2 4 5 2 3 4 2 1 1 4 2 1 1 1 1 2 1 4 4 1 3 2 3 3 2 2 2 1 2 1 1 4 2 1 4 4 2
+ [408] 1 2 2 3 2 2 2 1 4 3 6 1 2 3 1 3 2 2 2 1 1 3 2 1 1 1 3 2 2 2 4 4 4 1 1 2 4
+ [445] 3 2 1 3 1 3 2 4 2 2 2 3 2 1 4 3 2 1 4 3 1 3 2 2 3 2 1 3 1 4 1 1 1 2 4 3 1
+ [482] 2 2 2 3 2 3 1 1 2 3 2 1 1 2 2 2 2 2 3 3 1 1 2 2 1 2 1 1 3 3 1 3 1 1 1 1 1
+ [519] 2 5 1 1 2 2 1 1 2 1 4 1 2 4 1 3 2 2 1 1 2 2 1 1 4 2 3 3 1 5 3 1 1 2 2 1 1
+ [556] 3 1 3 2 4 2 2 3 2 1 2 1 1 1 2 2 3 1 5 2 2 2 2 3 2 2 2 1 5 3 2 3 1 2 3 1 2
+ [593] 2 2 1 2 2 4 2 6 1 2 2 1 1 2 2 3 2 3 2 3 3 4 2 2 2 2 4 2 1 1 2 2 3 1 1 1 3
+ [630] 2 2 5 2 7 1 2 4 3 3 1 2 1 1 1 1 3 2 4 2 2 3 2 2 1 4 3 2 2 2 3 2 4 2 2 4 2
+ [667] 2 2 6 3 3 1 4 4 2 1 2 1 6 2 3 3 2 1 1 6 2 1 5 1 2 2 6 2 2 4 1 3 1 2 2 1 1
+ [704] 3 1 2 4 2 1 3 2 4 3 2 2 1 1 5 6 4 2 2 2 2 4 2 1 2 2 2 2 4 5 2 2 2 4 3 3 3
+ [741] 2 4 2 4 2 2 2 2 2 1 2 2 4 3 2 2 2 3 1 3 4 2 1 2 1 2 2 3 1 2 1 2 1 2 1 2 2
+ [778] 2 2 1 1 3 3 1 3 4 3 2 2 4 2 3 2 1 3 2 4 2 2 3 1 2 4 3 3 4 2 1 4 2 1 1 1 3
+ [815] 1 5 2 2 4 2 2 1 3 1 2 2 1 2 1 2 1 2 1 3 2 3 2 2 2 1 4 2 2 2 2 2 4 2 2 2 3
+ [852] 1 2 5 5 2 2 2 2 2 1 3 1 3 2 4 2 4 2 4 1 2 3 2 3 3 2 3 2 2 2 1 3 2 4 2 2 3
+ [889] 3 2 2 2 2 3 2 1 2 4 1 1 1 1 4 3 2 2 3 2 2 1 2 3 2 1 1 1 2 2 2 2 3 3 2 2 2
+ [926] 4 5 2 2 2 1 2 3 1 3 3 4 3 2 1 1 1 2 4 3 5 1 1 2 2 2 2 2 2 5 2 2 3 1 2 3 2
+ [963] 1 2 2 2 2 2 3 1 1 2 5 3 5 1 1 4 2 2 1 3 1 1 2 4 3 3 3 2 1 1 2 2 1 1 2 2 2
+[1000] 2</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(na_example)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># NA değerlerini rastgele bir non-NA değer ile değiştirme fonksiyonu</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>replace_na_with_random <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Geçerli (non-NA) değerleri al</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  non_na_values <span class="ot">&lt;-</span> x[<span class="sc">!</span><span class="fu">is.na</span>(x)]</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Eğer hiç geçerli değer yoksa hata verme</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(non_na_values) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Veri setinde hiç geçerli (non-NA) değer bulunamadı."</span>)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Her NA değerine rastgele bir non-NA değer atama</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  x[<span class="fu">is.na</span>(x)] <span class="ot">&lt;-</span> <span class="fu">sample</span>(non_na_values, <span class="fu">sum</span>(<span class="fu">is.na</span>(x)), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Version 2: NA'ları rastgele bir geçerli değer ile değiştirilmiş veri seti</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>na_example <span class="ot">&lt;-</span> <span class="fu">replace_na_with_random</span>(na_example)</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Sonuçları göster</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(na_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   [1] 2 1 3 2 1 3 1 4 3 2 2 3 2 2 1 4 3 1 1 2 1 2 2 1 2 5 1 2 2 3 1 2 4 1 1 1 4
+  [38] 5 2 3 4 1 2 4 1 1 2 1 5 1 2 2 1 1 5 1 3 1 1 4 4 7 3 2 4 3 1 2 4 1 2 2 3 2
+  [75] 1 2 2 4 3 4 2 3 1 3 2 1 1 1 3 1 2 3 1 2 2 1 2 2 1 1 4 1 1 2 3 3 2 2 3 3 3
+ [112] 4 1 1 1 2 2 4 3 4 3 1 2 1 1 5 1 1 1 5 1 2 1 3 5 3 2 2 1 1 1 2 3 5 3 1 1 4
+ [149] 2 4 3 3 2 2 3 2 6 1 1 1 2 2 1 3 1 1 5 2 2 2 4 2 2 5 1 4 3 3 4 4 3 1 4 1 1
+ [186] 3 1 1 1 2 3 5 2 2 2 3 1 2 2 3 2 1 1 2 1 1 2 3 2 1 1 5 3 1 1 2 2 1 3 2 2 1
+ [223] 1 2 3 1 1 1 4 3 4 2 2 1 4 1 4 5 1 4 1 3 1 1 1 1 5 2 3 3 2 4 3 3 2 5 2 2 3
+ [260] 4 6 2 2 2 1 2 4 2 3 3 3 2 2 4 3 1 4 2 1 2 4 3 6 2 3 1 4 2 2 1 1 1 3 2 3 3
+ [297] 1 5 1 4 2 1 1 3 2 1 2 3 1 2 2 3 3 2 1 2 3 5 5 1 2 3 3 1 1 2 1 2 4 2 2 1 1
+ [334] 1 3 2 1 1 3 4 1 1 2 1 1 3 3 3 1 1 3 5 3 2 3 4 1 4 3 1 2 2 1 2 2 1 2 2 6 1
+ [371] 2 4 5 4 3 4 2 1 1 4 2 1 1 1 1 2 1 4 4 1 3 1 3 3 4 2 2 1 2 1 1 4 2 1 4 4 3
+ [408] 1 2 2 3 2 2 2 1 4 3 6 1 2 3 1 3 2 2 2 1 1 3 2 1 1 1 3 2 2 1 4 4 4 1 1 1 4
+ [445] 3 1 1 3 1 3 2 4 2 2 2 3 2 1 4 3 2 1 4 3 1 3 2 2 3 2 1 3 1 4 1 1 1 2 4 3 1
+ [482] 2 2 2 3 2 3 1 1 4 3 2 1 1 2 3 2 2 2 3 3 1 1 2 1 1 2 1 1 3 3 1 3 1 1 1 1 1
+ [519] 2 5 1 1 2 2 1 1 2 1 4 1 2 4 1 3 2 3 1 1 3 2 1 1 4 2 3 3 1 5 3 1 1 2 2 1 1
+ [556] 3 1 3 2 4 1 2 3 2 1 2 1 1 1 2 2 3 1 5 2 1 2 2 3 2 2 2 1 5 3 2 3 1 2 3 1 2
+ [593] 2 2 1 2 2 4 2 6 1 2 2 1 1 2 2 3 1 3 2 3 3 4 2 3 2 4 4 4 1 1 2 2 3 1 1 1 3
+ [630] 5 2 5 3 7 1 3 4 3 3 1 1 1 1 1 1 3 2 4 2 2 3 2 2 1 4 3 2 2 2 3 2 4 2 2 4 1
+ [667] 2 2 6 3 3 1 4 4 2 1 1 1 6 3 3 3 2 1 1 6 3 1 5 1 4 2 6 2 2 4 1 3 1 2 1 1 1
+ [704] 3 1 2 4 2 1 3 2 4 3 2 2 1 1 5 6 4 2 2 2 2 4 2 1 2 2 2 2 4 5 1 2 2 4 3 3 3
+ [741] 2 4 2 4 2 1 3 3 2 1 3 2 4 3 2 1 2 3 1 3 4 1 1 2 1 2 2 3 1 2 1 2 1 2 1 2 2
+ [778] 2 2 1 1 3 3 1 3 4 3 3 2 4 2 3 2 1 3 2 4 2 2 3 1 2 4 3 3 4 3 1 4 2 1 1 1 3
+ [815] 1 5 2 2 4 2 1 1 3 1 2 1 1 2 1 2 1 2 1 3 2 3 2 3 2 1 4 2 5 1 1 2 4 2 3 3 3
+ [852] 1 3 5 5 2 2 2 4 2 1 3 1 3 2 4 2 4 2 4 1 2 3 2 3 3 2 3 2 2 2 1 3 2 4 2 4 3
+ [889] 3 2 2 2 2 3 2 1 2 4 1 1 1 1 4 3 2 2 3 2 2 1 1 3 2 1 1 1 2 1 2 2 3 3 2 1 4
+ [926] 4 5 2 2 2 1 2 3 1 3 3 4 3 1 1 1 1 2 4 3 5 1 1 2 2 2 2 2 2 5 2 2 3 1 2 3 2
+ [963] 1 2 1 1 2 2 3 1 1 2 5 3 5 1 1 4 1 2 1 3 1 1 2 4 3 3 3 2 1 1 2 2 1 1 2 2 3
+[1000] 2</code></pre>
+</div>
+</div>
 
 
 
