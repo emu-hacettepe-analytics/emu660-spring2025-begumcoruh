@@ -2,6 +2,8 @@
 title: "Welcome to My Analytics Lab"
 ---
 
+![Weehee GIF](https://tenor.com/tr/view/weehee-gif-6720029885263637870)
+
 Hello!! My name is Begüm
 
 This is my personal webpage.
