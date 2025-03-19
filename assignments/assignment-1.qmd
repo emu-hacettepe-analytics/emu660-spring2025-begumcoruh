@@ -2,14 +2,8 @@
 title: "Assignment 1"
 ---
 
-# Assignment 1
+\*\*"Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler"\*\*
 
-```{r}
-1 + 1
-```
-
-My first assignment has two parts.
-
-## (a)
-
-## (b)
+YouTube videosunda Mustafa Aydoğan ve Erdi Daşdemir, deneyimlerini veri bilimi, makine öğrenimi ve optimizasyon ile tartışıyor.  Envanter yönetimi, tedarik zinciri optimizasyonu gibi sorunların üstesinden gelirken verilerin ön işlenmesinin ve uygun makine öğrenimi yaklaşımlarının seçilmesinin önemini
+vurguluyorlar.  Ayrıca tahmin yarışmalarına katılımları, enerji endüstrisindeki uzmanlıkları ve çevrimiçi
+öğrenmenin önemi hakkında konuşuldu. Genel olarak konuşursak, erken başlamanın, sebat etmenin ve güncel olmanın değerini vurgulandı.
