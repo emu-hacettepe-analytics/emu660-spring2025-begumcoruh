@@ -4,7 +4,7 @@ title: "<div style='text-align:center;'><span style='color:red; font-style:itali
 
 Welcome to our project page.
 
-***Beg??m CORUH & Eda G??NEN***
+***Begum CORUH & Eda GONEN***
 
 Keep an eye on this space to stay updated with my project activities.
 
@@ -46,14 +46,14 @@ The combined dataset was saved in both `.RData` and `.csv` formats for flexibili
 
 ```{r}
 
-load("path/to/movies.RData")
-# 1. Global movies verisini y??kle
+
+# 1. Global movies verisini yukle
 load("movies.RData")
 
 # 2. Turkish movies verisini oku
 turkish_movies <- read.csv("final_dataset.csv", fileEncoding = "UTF-8")
 
-# 3. Turkish movies verisini geni??let
+# 3. Turkish movies verisini genislet
 turkish_movies_expanded <- data.frame(
   title = turkish_movies$localized.title,
   year = as.integer(turkish_movies$runtimes),
@@ -72,16 +72,16 @@ turkish_movies_expanded <- data.frame(
 # 4. Global movies'a country kolonu ekle
 movies$country <- "Global"
 
-# 5. Kolon s??ralar??n?? e??itle
+# 5. Kolon sıralarını esitle
 turkish_movies_expanded <- turkish_movies_expanded[, names(movies)]
 
-# 6. ??kisini birle??tir
+# 6. Ikisini birlestir
 combined_movies <- rbind(movies, turkish_movies_expanded)
 
 # 7. Kaydet
 save(combined_movies, file = "combined_movies.RData")
 
-# 8. CSV de olu??tur
+# 8. CSV de olustur
 write.csv(combined_movies, file = "combined_movies.csv", row.names = FALSE)
 
 ```
@@ -138,8 +138,10 @@ The analyses presented here are intended solely for illustrative purposes and do
 #### ***Top 10 Highest Rated Movies***
 
 ```{r}
-install.packages("dplyr")
-install.packages("ggplot2")
+install.packages("dplyr", repos = "https://cloud.r-project.org")
+
+install.packages("ggplot2", repos = "https://cloud.r-project.org")
+
 library(dplyr)
 library(ggplot2)
 
@@ -180,7 +182,7 @@ combined_movies %>%
 #### ***Comparison of IMDb Ratings: Global vs Turkey***
 
 ```{r}
-# Sahte bir ??lke atamas?? (??rnekleme)
+# Sahte bir ulke atamasi 
 set.seed(42)
 movies_grouped <- movies %>%
   filter(!is.na(rating), !is.na(length)) %>%
