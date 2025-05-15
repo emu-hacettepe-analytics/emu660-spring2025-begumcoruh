@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Project Genre Matters: Exploring Film Audience Preferences – Begüm's Analytics Lab</title>
+<title>Project Genre Matters: Exploring Film Audience Preferences – Begüm’s Analytics Lab</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,12 +69,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9e883780f2fbd657c48aa509da551084.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-e77499559b757ffca09e2ecb2797a99c.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-39ad90616d7b3aaed17392f972afe386.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -102,6 +100,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+
+<script src="site_libs/datatables-binding-0.33/datatables.js"></script>
+
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
 
 
 <link rel="stylesheet" href="styles.css">
@@ -157,7 +175,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a href="https://twitter.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
     <a href="https://twitter.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
     <a href="https://linkedin.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -178,17 +195,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#data-combination-process-preprocessing" id="toc-data-combination-process-preprocessing" class="nav-link" data-scroll-target="#data-combination-process-preprocessing"><strong><em>2.3 Data Combination Process &amp; Preprocessing</em></strong></a></li>
   <li><a href="#data-summary" id="toc-data-summary" class="nav-link" data-scroll-target="#data-summary"><strong><em>2.4 Data Summary</em></strong></a></li>
   </ul></li>
-  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis"><strong><em>3.Data Analysis</em></strong></a></li>
-  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">3. Analysis</a>
+  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis"><strong><em>3.Data Analysis</em></strong></a>
   <ul class="collapse">
-  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">3.1 Exploratory Data Analysis</a></li>
-  <li><a href="#trend-analysis" id="toc-trend-analysis" class="nav-link" data-scroll-target="#trend-analysis">3.2 Trend Analysis</a></li>
-  <li><a href="#model-fitting" id="toc-model-fitting" class="nav-link" data-scroll-target="#model-fitting">3.3 Model Fitting</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">3.4 Results</a></li>
+  <li><a href="#top-10-highest-most-rated-movies" id="toc-top-10-highest-most-rated-movies" class="nav-link" data-scroll-target="#top-10-highest-most-rated-movies"><strong><em>3.1 Top 10 Highest &amp; Most Rated Movies</em></strong></a></li>
+  <li><a href="#comparison-of-imdb-ratings-global-vs-turkey" id="toc-comparison-of-imdb-ratings-global-vs-turkey" class="nav-link" data-scroll-target="#comparison-of-imdb-ratings-global-vs-turkey"><strong><em>3.2 Comparison of IMDb Ratings: Global vs Turkey</em></strong></a></li>
+  <li><a href="#distribution-of-imdb-ratings-in-relation-to-vote-counts" id="toc-distribution-of-imdb-ratings-in-relation-to-vote-counts" class="nav-link" data-scroll-target="#distribution-of-imdb-ratings-in-relation-to-vote-counts"><strong><em>3.3 Distribution of IMDb Ratings in Relation to Vote Counts</em></strong></a></li>
+  <li><a href="#imdb-rating-density-by-mpaa-rating-a-ridge-plot-visualization" id="toc-imdb-rating-density-by-mpaa-rating-a-ridge-plot-visualization" class="nav-link" data-scroll-target="#imdb-rating-density-by-mpaa-rating-a-ridge-plot-visualization"><strong><em>3.4 IMDb Rating Density by MPAA Rating: A Ridge Plot Visualization</em></strong></a></li>
+  <li><a href="#relationship-between-film-length-and-imdb-ratings-a-comparative-sample" id="toc-relationship-between-film-length-and-imdb-ratings-a-comparative-sample" class="nav-link" data-scroll-target="#relationship-between-film-length-and-imdb-ratings-a-comparative-sample"><strong><em>3.5 Relationship Between Film Length and IMDb Ratings: A Comparative Sample</em></strong></a></li>
+  <li><a href="#beeswarm-plot-of-imdb-ratings-by-genre" id="toc-beeswarm-plot-of-imdb-ratings-by-genre" class="nav-link" data-scroll-target="#beeswarm-plot-of-imdb-ratings-by-genre"><strong><em>3.6 Beeswarm Plot of IMDb Ratings by Genre</em></strong></a></li>
+  <li><a href="#heatmap-of-genre-distribution-across-imdb-rating-ranges" id="toc-heatmap-of-genre-distribution-across-imdb-rating-ranges" class="nav-link" data-scroll-target="#heatmap-of-genre-distribution-across-imdb-rating-ranges"><strong><em>3.7 Heatmap of Genre Distribution Across IMDb Rating Ranges</em></strong></a></li>
+  <li><a href="#imdb-rating-distributions-by-production-budget-groups" id="toc-imdb-rating-distributions-by-production-budget-groups" class="nav-link" data-scroll-target="#imdb-rating-distributions-by-production-budget-groups"><strong><em>3.8 IMDb Rating Distributions by Production Budget Groups</em></strong></a></li>
+  <li><a href="#average-star-ratings-r1-r10-by-genre" id="toc-average-star-ratings-r1-r10-by-genre" class="nav-link" data-scroll-target="#average-star-ratings-r1-r10-by-genre"><strong><em>3.9 Average Star Ratings (r1-r10) by Genre</em></strong></a></li>
+  <li><a href="#most-frequent-words-in-movie-titles" id="toc-most-frequent-words-in-movie-titles" class="nav-link" data-scroll-target="#most-frequent-words-in-movie-titles"><strong><em>3.10 Most Frequent Words in Movie Titles</em></strong></a></li>
   </ul></li>
-  <li><a href="#results-and-key-takeaways" id="toc-results-and-key-takeaways" class="nav-link" data-scroll-target="#results-and-key-takeaways">4. Results and Key Takeaways</a></li>
+  <li><a href="#linear-regression-model" id="toc-linear-regression-model" class="nav-link" data-scroll-target="#linear-regression-model"><strong>4. Linear Regression Model</strong></a>
+  <ul class="collapse">
+  <li><a href="#diagnostic-evaluation-of-the-linear-regression-model" id="toc-diagnostic-evaluation-of-the-linear-regression-model" class="nav-link" data-scroll-target="#diagnostic-evaluation-of-the-linear-regression-model"><strong>4.1 Diagnostic Evaluation of the Linear Regression Model</strong></a></li>
+  <li><a href="#interpretation-of-regression-output" id="toc-interpretation-of-regression-output" class="nav-link" data-scroll-target="#interpretation-of-regression-output"><strong>4.2 Interpretation of Regression Output</strong></a></li>
+  <li><a href="#model-performans" id="toc-model-performans" class="nav-link" data-scroll-target="#model-performans"><strong>4.3 Model Performans</strong></a></li>
+  </ul></li>
+  <li><a href="#results-and-key-takeaways" id="toc-results-and-key-takeaways" class="nav-link" data-scroll-target="#results-and-key-takeaways"><strong>5. Results and Key Takeaways</strong></a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="project.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -199,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span style="color:red; font-style:italic;">Project Genre Matters: Exploring Film Audience Preferences</span></h1>
+<h1 class="title">Project Genre Matters: Exploring Film Audience Preferences</h1>
 </div>
 
 
@@ -216,91 +244,97 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Lora:wght@400;700&amp;display=swap" rel="stylesheet"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/project2.gif" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
 <p>Welcome to our project page.</p>
-<p><strong><em>Begum CORUH &amp; Eda GONEN</em></strong></p>
-<p>Keep an eye on this space to stay updated with my project activities.</p>
+<p><strong><em>Begüm ÇORUH &amp; Eda GÖNEN</em></strong></p>
+<p>Keep an eye on this space to stay updated with our project activitiess</p>
 <section id="project-overview-and-scope" class="level2">
 <h2 class="anchored" data-anchor-id="project-overview-and-scope"><strong><em>1.Project Overview and Scope</em></strong></h2>
-<p>In this project, we aim to analyze how different movie genres perform in terms of audience preferences. Our primary focus is to identify genre-based patterns in film popularity and ratings, using a data-driven approach. To make the analysis more meaningful and localized, we enriched a widely-used global movie dataset by merging it with a Turkish-specific movie dataset. Through this project, we plan to discover whether certain genres are more successful among audiences and if factors like production year, runtime, or budget have a significant effect on genre-based popularity.</p>
+<p>Bu projede, farklı film türlerinin izleyici tercihleri açısından nasıl bir performans gösterdiğini analiz etmeyi amaçlıyoruz. Temel odak noktamız, tür bazlı popülerlik ve puanlamalarda öne çıkan eğilimleri veriye dayalı bir yaklaşımla ortaya koymaktır.</p>
+<p>Analizi daha anlamlı ve yerel hale getirebilmek için, yaygın olarak kullanılan küresel bir film veri setini, Türkiye’ye özgü bir film veri setiyle birleştirerek zenginleştirdik.</p>
+<p>Bu proje aracılığıyla, <strong><em>belirli türlerin izleyiciler arasında daha başarılı olup olmadığını; ayrıca yapım yılı, film süresi ve bütçe gibi faktörlerin tür bazlı popülerlik üzerinde anlamlı bir etkisinin olup olmadığını</em></strong> keşfetmeyi hedefliyoruz.</p>
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data"><strong><em>2.Data</em></strong></h2>
-<p>We based our analysis on a combined dataset. The core dataset is <em>ggplot2movies</em>, which includes information about thousands of films worldwide.</p>
-<p>To create a more localized perspective, we merged this dataset with a Turkish movie dataset.</p>
-<p>The combined data allowed us to create new variables, such as Turkish-specific ratings and popularity scores, which we will use in our comparative analysis.</p>
+<p>Analizimiz, birleştirilmiş bir veri seti üzerine kurulmuştur. Temel veri seti, dünya genelinde binlerce filme ait bilgileri içeren <strong><code>ggplot2movies</code></strong> veri setidir.</p>
+<p>Daha yerelleştirilmiş bir bakış açısı oluşturmak amacıyla bu veri seti, Türk filmlerine ait bir veri setiyle birleştirilmiştir.</p>
+<p>Bu birleşim sayesinde, <strong><em>analizde kullanmak üzere Türkiye’ye özgü puanlama ve popülerlik skorları gibi yeni değişkenler oluşturulmuş; böylece küresel ve yerel düzeyde karşılaştırmalı değerlendirmeler yapılmasına olanak sağlanmıştır</em></strong>.</p>
 <section id="data-source" class="level3">
 <h3 class="anchored" data-anchor-id="data-source"><strong><em>2.1 Data Source</em></strong></h3>
 <ul>
-<li><p>The global movie data is sourced from the open-access <em>ggplot2movies</em> dataset, widely used in data analysis and visualization projects.</p></li>
-<li><p>The Turkish-specific data was obtained from Kaggle, specifically from the <a href="https://www.kaggle.com/datasets/emreokcular/turkish-movies">Turkish Movies Dataset</a> shared by Emre OkC’ular.</p></li>
-<li><p>Both datasets provide rich information such as film titles, genres, production years, runtimes, IMDb ratings, and other useful attributes for our analysis.</p></li>
+<li><p>Küresel film verisi, veri analizi ve görselleştirme projelerinde yaygın olarak kullanılan açık erişimli <code>ggplot2movies</code> veri setinden alınmıştır.</p></li>
+<li><p>Türkiye’ye özgü veriler ise, Kaggle platformunda Emre Okçular tarafından paylaşılan <a href="https://www.kaggle.com/datasets/emreokcular/turkish-movies">Turkish Movies Dataset</a> adlı veri setinden temin edilmiştir.</p></li>
+<li><p>Her iki veri seti de film adları, türleri, yapım yılları, süreleri, IMDb puanları ve analiz için faydalı olabilecek çeşitli diğer nitelikler açısından zengin bir içerik sunmaktadır.</p></li>
 </ul>
 </section>
 <section id="reasons-of-choice" class="level3">
 <h3 class="anchored" data-anchor-id="reasons-of-choice"><strong>2.<em>2 Reasons of Choice</em></strong></h3>
-<p>We selected this dataset because it offers a rich and diverse set of information about movies across different genres and periods. The global <em>ggplot2movies</em> dataset provides a well-organized structure for large-scale analysis, while the Turkish Movies dataset adds a localized dimension to the study, making it more relevant to regional audience preferences. The combination of both datasets allows us to explore general trends as well as cultural differences in movie genre popularity. Moreover, the variety of available variables such as genre, rating, year, runtime, and awards creates multiple opportunities for deeper analytical approaches.</p>
+<p>Bu veri seti, farklı türler ve dönemler boyunca filmlere dair zengin ve çeşitli bilgiler sunduğu için tercih edilmiştir.</p>
+<p><strong>Küresel <code>ggplot2movies</code></strong> veri seti, büyük ölçekli analizler için düzenli ve kapsamlı bir yapı sunarken;</p>
+<p><strong>Türk Filmleri veri seti</strong>, çalışmaya yerel bir boyut kazandırarak bölgesel izleyici tercihlerine yönelik daha anlamlı çıkarımlar yapılmasına olanak tanımaktadır.</p>
+<p>Her iki veri setinin birleştirilmesi sayesinde, hem genel eğilimler hem de film türlerinin kültürel popülaritesine dair farklılıklar incelenebilmektedir. Ayrıca; tür, puan, yapım yılı, süre ve ödül gibi çok çeşitli değişkenlerin yer alması, daha derinlemesine analitik yaklaşımların uygulanmasını mümkün kılmaktadır.</p>
 </section>
 <section id="data-combination-process-preprocessing" class="level3">
 <h3 class="anchored" data-anchor-id="data-combination-process-preprocessing"><strong><em>2.3 Data Combination Process &amp; Preprocessing</em></strong></h3>
-<p>To create a comprehensive and diverse dataset, we combined two different sources.<br>
-First, we imported the original <em>ggplot2movies</em> dataset, which contains global movie information including variables such as title, year, length, budget, rating, votes, and genre indicators.<br>
-Second, we processed a Turkish movie dataset, cleaned it, and expanded its structure to match the global dataset’s format.</p>
-<p>We standardized column names, added missing fields where necessary (e.g., budget, votes, genre dummies), and included a <code>country</code> variable to distinguish between Global and Turkish movies.<br>
-After ensuring consistency across both datasets, we merged them into a single, unified dataset named <code>combined_movies</code>.<br>
-This final dataset preserves authentic movie titles and metadata while also incorporating localized Turkish film information, making it suitable for international and regional analyses.</p>
-<p>The combined dataset was saved in both <code>.RData</code> and <code>.csv</code> formats for flexibility in further exploration and analysis.</p>
+<p>Kapsamlı ve temsili bir veri seti oluşturmak amacıyla, iki ayrı kaynaktan elde edilen veriler birleştirilmiştir. İlk olarak; başlık, yıl, süre, bütçe, IMDb puanı, oy sayısı ve tür gibi temel değişkenleri içeren küresel film bilgilerine sahip <code>ggplot2movies</code> veri seti kullanılmıştır. İkinci olarak ise, yerel bir Türk filmi veri seti işlenmiş, temizlenmiş ve yapısal olarak küresel veri setiyle uyumlu hale getirilmiştir.</p>
+<p>Bu süreçte, tüm sütun adları standartlaştırılmış; eksik veri alanları (örneğin bütçe, oy sayısı, tür göstergeleri) uygun şekilde tamamlanmış ve filmlerin kökenini belirtmek üzere bir <code>country</code> (ülke) değişkeni eklenmiştir. Veri yapılarında tutarlılık sağlandıktan sonra her iki kaynak, <code>combined_movies</code> adlı tek birleştirilmiş veri setinde bir araya getirilmiştir.</p>
+<p>Sonuç olarak oluşturulan bu bütünleşik veri seti, hem orijinal film başlıklarını ve meta verileri korumakta hem de yerel Türk filmlerine ilişkin bilgileri içermektedir. <strong>Böylece veri seti, hem uluslararası hem de yerel düzeyde gerçekleştirilecek analizler için uygun ve esnek bir yapıya kavuşmuştur</strong>. Analiz ve görselleştirme işlemlerinde kolaylık sağlaması adına, veri seti hem <code>.RData</code> hem de <code>.csv</code> formatlarında kaydedilmiştir.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Global movies verisini yukle</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"movies.RData"</span>)</span>
+<details class="code-fold">
+<summary>Show data combination process</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"movies.RData"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Turkish movies verisini oku</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>turkish_movies <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"final_dataset.csv"</span>, <span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Turkish movies verisini genislet</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>turkish_movies_expanded <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> turkish_movies<span class="sc">$</span>localized.title,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="fu">as.integer</span>(turkish_movies<span class="sc">$</span>runtimes),</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">length =</span> <span class="fu">as.integer</span>(turkish_movies<span class="sc">$</span>runtimes),</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">budget =</span> <span class="cn">NA</span>,</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">rating =</span> turkish_movies<span class="sc">$</span>rating,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">votes =</span> <span class="cn">NA</span>,</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">r1 =</span> <span class="cn">NA</span>, <span class="at">r2 =</span> <span class="cn">NA</span>, <span class="at">r3 =</span> <span class="cn">NA</span>, <span class="at">r4 =</span> <span class="cn">NA</span>, <span class="at">r5 =</span> <span class="cn">NA</span>, </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">r6 =</span> <span class="cn">NA</span>, <span class="at">r7 =</span> <span class="cn">NA</span>, <span class="at">r8 =</span> <span class="cn">NA</span>, <span class="at">r9 =</span> <span class="cn">NA</span>, <span class="at">r10 =</span> <span class="cn">NA</span>,</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">mpaa =</span> <span class="cn">NA</span>,</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">Action =</span> <span class="cn">NA</span>, <span class="at">Animation =</span> <span class="cn">NA</span>, <span class="at">Comedy =</span> <span class="cn">NA</span>, <span class="at">Drama =</span> <span class="cn">NA</span>,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">Documentary =</span> <span class="cn">NA</span>, <span class="at">Romance =</span> <span class="cn">NA</span>, <span class="at">Short =</span> <span class="cn">NA</span>,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">country =</span> <span class="st">"Turkey"</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>turkish_movies <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"final_dataset.csv"</span>, <span class="at">fileEncoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>turkish_movies_expanded <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> turkish_movies<span class="sc">$</span>localized.title,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="fu">as.integer</span>(turkish_movies<span class="sc">$</span>runtimes),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">length =</span> <span class="fu">as.integer</span>(turkish_movies<span class="sc">$</span>runtimes),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">budget =</span> <span class="cn">NA</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">rating =</span> turkish_movies<span class="sc">$</span>rating,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">votes =</span> <span class="cn">NA</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">r1 =</span> <span class="cn">NA</span>, <span class="at">r2 =</span> <span class="cn">NA</span>, <span class="at">r3 =</span> <span class="cn">NA</span>, <span class="at">r4 =</span> <span class="cn">NA</span>, <span class="at">r5 =</span> <span class="cn">NA</span>, </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">r6 =</span> <span class="cn">NA</span>, <span class="at">r7 =</span> <span class="cn">NA</span>, <span class="at">r8 =</span> <span class="cn">NA</span>, <span class="at">r9 =</span> <span class="cn">NA</span>, <span class="at">r10 =</span> <span class="cn">NA</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">mpaa =</span> <span class="cn">NA</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">Action =</span> <span class="cn">NA</span>, <span class="at">Animation =</span> <span class="cn">NA</span>, <span class="at">Comedy =</span> <span class="cn">NA</span>, <span class="at">Drama =</span> <span class="cn">NA</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">Documentary =</span> <span class="cn">NA</span>, <span class="at">Romance =</span> <span class="cn">NA</span>, <span class="at">Short =</span> <span class="cn">NA</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">country =</span> <span class="st">"Turkey"</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>movies<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="st">"Global"</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Global movies'a country kolonu ekle</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>movies<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="st">"Global"</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Kolon sD1ralarD1nD1 esitle</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>turkish_movies_expanded <span class="ot">&lt;-</span> turkish_movies_expanded[, <span class="fu">names</span>(movies)]</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>turkish_movies_expanded <span class="ot">&lt;-</span> turkish_movies_expanded[, <span class="fu">names</span>(movies)]</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>combined_movies <span class="ot">&lt;-</span> <span class="fu">rbind</span>(movies, turkish_movies_expanded)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(combined_movies, <span class="at">file =</span> <span class="st">"combined_movies.RData"</span>)</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Ikisini birlestir</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>combined_movies <span class="ot">&lt;-</span> <span class="fu">rbind</span>(movies, turkish_movies_expanded)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. Kaydet</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(combined_movies, <span class="at">file =</span> <span class="st">"combined_movies.RData"</span>)</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 8. CSV de olustur</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(combined_movies, <span class="at">file =</span> <span class="st">"combined_movies.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(combined_movies, <span class="at">file =</span> <span class="st">"combined_movies.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="data-summary" class="level3">
 <h3 class="anchored" data-anchor-id="data-summary"><strong><em>2.4 Data Summary</em></strong></h3>
-<p>The final dataset combines global and Turkish movies, resulting in a comprehensive collection of approximately 8,000 films.</p>
-<p>It includes a wide range of information for each movie, covering basic metadata, audience ratings, and genre classifications.</p>
-<p>The following code blocks provide an overview of the combined movies dataset, including its structure, dimensions, variable names, sample records, and distribution patterns.</p>
+<p>Son oluşturulan veri seti, dünya genelinde ve Türkiye’de yapılmış filmlerin bir araya getirilmesiyle oluşturulmuş olup, yaklaşık 8.000 filme dair detaylı bir koleksiyon barındırmaktadır.</p>
+<p>Bu veri seti; her bir film için temel bilgiler, izleyici değerlendirmeleri ve tür sınıflandırmaları gibi çeşitli bilgileri kapsamaktadır.</p>
+<p>Aşağıda yer alan kod blokları, bu birleştirilmiş film veri setinin yapısı, boyutu, değişken isimleri, örnek kayıtlar ve dağılım desenleri hakkında genel bir bilgi sunmaktadır.</p>
 <section id="structure-of-combined_movies-dataset" class="level4">
-<h4 class="anchored" data-anchor-id="structure-of-combined_movies-dataset">Structure of combined_movies dataset</h4>
+<h4 class="anchored" data-anchor-id="structure-of-combined_movies-dataset"><strong><em>Structure of combined_movies dataset</em></strong></h4>
 <div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the combined dataset</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"combined_movies.RData"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Show structure</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(combined_movies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Classes 'tbl_df', 'tbl' and 'data.frame':   67465 obs. of  25 variables:
  $ title      : chr  "$" "$1000 a Touchdown" "$21 a Day Once a Month" "$40,000" ...
@@ -332,20 +366,26 @@ This final dataset preserves authentic movie titles and metadata while also inco
 </div>
 </section>
 <section id="number-of-rows-and-columns" class="level4">
-<h4 class="anchored" data-anchor-id="number-of-rows-and-columns">Number of rows and columns</h4>
+<h4 class="anchored" data-anchor-id="number-of-rows-and-columns"><strong><em>Number of rows and columns</em></strong></h4>
 <div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of rows and columns</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(combined_movies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 67465    25</code></pre>
 </div>
 </div>
 </section>
 <section id="names-of-variables" class="level4">
-<h4 class="anchored" data-anchor-id="names-of-variables">Names of variables</h4>
+<h4 class="anchored" data-anchor-id="names-of-variables"><strong><em>Names of variables</em></strong></h4>
 <div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Names of variables</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(combined_movies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "title"       "year"        "length"      "budget"      "rating"     
  [6] "votes"       "r1"          "r2"          "r3"          "r4"         
@@ -358,8 +398,11 @@ This final dataset preserves authentic movie titles and metadata while also inco
 <section id="first-6-rows-of-data" class="level4">
 <h4 class="anchored" data-anchor-id="first-6-rows-of-data"><strong><em>First 6 rows of data</em></strong></h4>
 <div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First 6 rows of data</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(combined_movies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                     title year length budget rating votes   r1   r2  r3   r4
 1                        $ 1971    121     NA    6.4   348  4.5  4.5 4.5  4.5
@@ -389,81 +432,36 @@ This final dataset preserves authentic movie titles and metadata while also inco
 </section>
 <section id="data-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="data-analysis"><strong><em>3.Data Analysis</em></strong></h2>
-<p>The analyses presented here are intended solely for illustrative purposes and do not represent a definitive study.</p>
-<section id="top-10-highest-rated-movies" class="level4">
-<h4 class="anchored" data-anchor-id="top-10-highest-rated-movies"><strong><em>Top 10 Highest Rated Movies</em></strong></h4>
+<section id="top-10-highest-most-rated-movies" class="level3">
+<h3 class="anchored" data-anchor-id="top-10-highest-most-rated-movies"><strong><em>3.1 Top 10 Highest &amp; Most Rated Movies</em></strong></h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>, <span class="at">repos =</span> <span class="st">"https://cloud.r-project.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Installing package into 'C:/Users/begum/AppData/Local/R/win-library/4.4'
-(as 'lib' is unspecified)</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>package 'dplyr' successfully unpacked and MD5 sums checked</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: cannot remove prior installation of package 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in file.copy(savedcopy, lib, recursive = TRUE): problem copying
-C:\Users\begum\AppData\Local\R\win-library\4.4\00LOCK\dplyr\libs\x64\dplyr.dll
-to C:\Users\begum\AppData\Local\R\win-library\4.4\dplyr\libs\x64\dplyr.dll:
-Permission denied</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: restored 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-The downloaded binary packages are in
-    C:\Users\begum\AppData\Local\Temp\RtmpcNZ6kH\downloaded_packages</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>, <span class="at">repos =</span> <span class="st">"https://cloud.r-project.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Installing package into 'C:/Users/begum/AppData/Local/R/win-library/4.4'
-(as 'lib' is unspecified)</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>package 'ggplot2' successfully unpacked and MD5 sums checked
-
-The downloaded binary packages are in
-    C:\Users\begum\AppData\Local\Temp\RtmpcNZ6kH\downloaded_packages</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 10 Movies Rating Line Chart </span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>movies <span class="sc">%&gt;%</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(rating <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(rating)) <span class="sc">%&gt;%</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">title =</span> <span class="fu">factor</span>(title, <span class="at">levels =</span> title)) <span class="sc">%&gt;%</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> title, <span class="at">y =</span> rating, <span class="at">group =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="fu">factor</span>(year))) <span class="sc">+</span></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>    </span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Top 10 Highest Rated Movies (Line Chart)"</span>,</span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Movie Title"</span>,</span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"IMDb Rating"</span>) <span class="sc">+</span></span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-ℹ Please use `linewidth` instead.</code></pre>
-</div>
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)  </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 10 Movies Rating Plot - Star Shaped Points</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>combined_movies <span class="sc">%&gt;%</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Global"</span>, rating <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(rating)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">title =</span> <span class="fu">factor</span>(title, <span class="at">levels =</span> title)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> title, <span class="at">y =</span> rating, <span class="at">color =</span> <span class="fu">factor</span>(year))) <span class="sc">+</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">shape =</span> <span class="dv">8</span>, <span class="at">stroke =</span> <span class="fl">1.5</span>) <span class="sc">+</span>  </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Top 10 Highest Rated Global Movies"</span>,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Movie Title"</span>,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"IMDb Rating"</span>,</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">accuracy =</span> <span class="fl">0.01</span>)) <span class="sc">+</span>  </span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -472,79 +470,795 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 </div>
 </div>
-<p>In this line chart, the same top 10 movies are displayed sequentially based on their ratings. The downward movement highlights the slight decrease between consecutive IMDb ratings. Coloring by release year shows the temporal diversity among the highest-rated films.</p>
-</section>
-<section id="average-rating-and-runtime-by-country" class="level4">
-<h4 class="anchored" data-anchor-id="average-rating-and-runtime-by-country"><strong><em>Average Rating and Runtime by Country</em></strong></h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>combined_movies <span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Average_Rating =</span> <span class="fu">round</span>(<span class="fu">mean</span>(rating, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>),</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Average_Length =</span> <span class="fu">round</span>(<span class="fu">mean</span>(length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>)</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 3
-  country Average_Rating Average_Length
-  &lt;chr&gt;            &lt;dbl&gt;          &lt;dbl&gt;
-1 Global            5.93           82.3
-2 Turkey            5.52           90.3</code></pre>
-</div>
-</div>
-</section>
-<section id="comparison-of-imdb-ratings-global-vs-turkey" class="level4">
-<h4 class="anchored" data-anchor-id="comparison-of-imdb-ratings-global-vs-turkey"><strong><em>Comparison of IMDb Ratings: Global vs Turkey</em></strong></h4>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sahte bir ulke atamasi </span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>movies_grouped <span class="ot">&lt;-</span> movies <span class="sc">%&gt;%</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(rating), <span class="sc">!</span><span class="fu">is.na</span>(length)) <span class="sc">%&gt;%</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">n</span>()) <span class="sc">&gt;</span> <span class="fl">0.95</span>, <span class="st">"Turkey"</span>, <span class="st">"Global"</span>))</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot: Rating vs Country</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies_grouped, <span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> rating, <span class="at">fill =</span> country)) <span class="sc">+</span></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="dv">21</span>, <span class="at">outlier.fill =</span> <span class="st">"white"</span>, <span class="at">outlier.color =</span> <span class="st">"black"</span>, <span class="at">width =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Global"</span> <span class="ot">=</span> <span class="st">"#3498db"</span>, <span class="st">"Turkey"</span> <span class="ot">=</span> <span class="st">"#e74c3c"</span>)) <span class="sc">+</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"IMDb Rating Distribution by Country"</span>,</span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Comparison between Global and Turkey Films"</span>,</span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"IMDb Rating"</span>) <span class="sc">+</span></span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)  </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 10 Movies Rating Plot - Star Shaped Points</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>combined_movies <span class="sc">%&gt;%</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Turkey"</span>, rating <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(rating)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">title =</span> <span class="fu">factor</span>(title, <span class="at">levels =</span> title)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> title, <span class="at">y =</span> rating, <span class="at">color =</span> <span class="fu">factor</span>(year))) <span class="sc">+</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">shape =</span> <span class="dv">8</span>, <span class="at">stroke =</span> <span class="fl">1.5</span>) <span class="sc">+</span>  </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Top 10 Highest Rated Global Movies"</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Movie Title"</span>,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"IMDb Rating"</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">accuracy =</span> <span class="fl">0.01</span>)) <span class="sc">+</span>  </span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="project_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="project_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>This boxplot compares the IMDb rating distributions between films produced globally and those produced in Turkey. Turkish films show a narrower distribution, while global films cover a broader range of ratings. Mean differences and the presence of outliers provide further insights into rating variability between the two groups.</p>
-<p><strong><em>To be continued…</em></strong></p>
+<p>Bu R kodları, Türkiye ve küresel ölçekteki filmler arasında IMDb puanına göre en yüksek sıralamada yer alan ilk 10 filmi belirleyerek bir grafik oluşturur. Grafik, bu filmlerin IMDb puanlarını yatay düzlemde gösterir ve her film, yayınlandığı yıla göre farklı renklerle ifade edilmiştir. Böylece hem ülkelere göre en yüksek puanlı filmler görselleştirilmiş olur hem de bu filmlerin hangi yıllarda üretildiği anlaşılır şekilde sunulmaktadır.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># En çok oy alan 10 filmi seç</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>top_films <span class="ot">&lt;-</span> combined_movies <span class="sc">%&gt;%</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(title), <span class="sc">!</span><span class="fu">is.na</span>(votes), <span class="sc">!</span><span class="fu">is.na</span>(rating)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(votes)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">20</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(title, year, rating, votes)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Etkileşimli tablo oluştur</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  top_films,</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">options =</span> <span class="fu">list</span>(</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">pageLength =</span> <span class="dv">10</span>,</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">autoWidth =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">dom =</span> <span class="st">'t'</span>,</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">class =</span> <span class="st">'stripe hover order-column compact'</span>,</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">columnDefs =</span> <span class="fu">list</span>(</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(<span class="at">className =</span> <span class="st">'dt-left'</span>, <span class="at">targets =</span> <span class="st">"_all"</span>)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">rownames =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> htmltools<span class="sc">::</span>tags<span class="sc">$</span><span class="fu">caption</span>(</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="st">'caption-side: top; text-align: left; </span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="st">             font-size: 16px; font-weight: bold; color: black;'</span>,</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">'🎬 Top 10 Most Voted Films (IMDb)'</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">formatStyle</span>(</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">names</span>(top_films),</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">'black'</span>,</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">fontWeight =</span> <span class="st">'normal'</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-2eeed6441756580fd006" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2eeed6441756580fd006">{"x":{"filter":"none","vertical":false,"caption":"<caption style=\"caption-side: top; text-align: left; &#10;             font-size: 16px; font-weight: bold; color: black;\">🎬 Top 10 Most Voted Films (IMDb)<\/caption>","data":[["Lord of the Rings: The Fellowship of the Ring, The","Shawshank Redemption, The","Matrix, The","Star Wars","Pulp Fiction","Godfather, The","Lord of the Rings: The Two Towers, The","Fight Club","American Beauty","Usual Suspects, The","Star Wars: Episode V - The Empire Strikes Back","Lord of the Rings: The Return of the King, The","Saving Private Ryan","Schindler's List","Sixth Sense, The","Raiders of the Lost Ark","Gladiator","Braveheart","Silence of the Lambs, The","Memento"],[2001,1994,1999,1977,1994,1972,2002,1999,1999,1995,1980,2003,1998,1993,1999,1981,2000,1995,1991,2000],[8.800000000000001,9.1,8.5,8.800000000000001,8.800000000000001,9.1,8.800000000000001,8.5,8.5,8.699999999999999,8.800000000000001,9,8.300000000000001,8.800000000000001,8.199999999999999,8.699999999999999,8,8.300000000000001,8.5,8.699999999999999],[157608,149494,143853,134640,132745,122755,114797,112092,109991,103854,103706,103631,100267,97667,96987,93511,92495,92437,92060,90317]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>title<\/th>\n      <th>year<\/th>\n      <th>rating<\/th>\n      <th>votes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"autoWidth":true,"dom":"t","class":"stripe hover order-column compact","columnDefs":[{"className":"dt-left","targets":"_all"},{"name":"title","targets":0},{"name":"year","targets":1},{"name":"rating","targets":2},{"name":"votes","targets":3}],"order":[],"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(this.api().cell(row, 0).node()).css({'font-weight':'normal','color':'black'});\nvar value=data[1]; $(this.api().cell(row, 1).node()).css({'font-weight':'normal','color':'black'});\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'font-weight':'normal','color':'black'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'font-weight':'normal','color':'black'});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="comparison-of-imdb-ratings-global-vs-turkey" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-of-imdb-ratings-global-vs-turkey"><strong><em>3.2 Comparison of IMDb Ratings: Global vs Turkey</em></strong></h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>movies_grouped <span class="ot">&lt;-</span> combined_movies <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(rating), <span class="sc">!</span><span class="fu">is.na</span>(length)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">n</span>()) <span class="sc">&gt;</span> <span class="fl">0.95</span>, <span class="st">"Turkey"</span>, <span class="st">"Global"</span>))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot: Rating vs Country</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies_grouped, <span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">y =</span> rating, <span class="at">fill =</span> country)) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="dv">21</span>, <span class="at">outlier.fill =</span> <span class="st">"white"</span>, <span class="at">outlier.color =</span> <span class="st">"black"</span>, <span class="at">width =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Global"</span> <span class="ot">=</span> <span class="st">"#3498db"</span>, <span class="st">"Turkey"</span> <span class="ot">=</span> <span class="st">"#e74c3c"</span>)) <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"IMDb Rating Distribution by Country"</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Comparison between Global and Turkey Films"</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Country"</span>,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"IMDb Rating"</span>) <span class="sc">+</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Bu kutu grafiği, dünya genelinde üretilen filmler ile Türkiye’de üretilen filmlerin IMDb puanlarının dağılımını karşılaştırmaktadır. Türkiye filmleri daha sıkışık bir dağılım sergilerken, dünya filmleri daha geniş bir puan aralığına sahiptir.</p>
+<p>Grafiğe göre, dünya genelindeki filmlerin IMDb puanlarının medyan değeri yaklaşık 6.0 iken, Türkiye yapımı filmlerde bu değer 5.5 civarındadır. Bu durum, genel olarak dünya filmlerinin biraz daha yüksek değerlendirildiğini göstermektedir. Ayrıca, Türkiye filmlerinin kutusunun daha uzun olması, puan dağılımının daha geniş ve değişkenliğin daha fazla olduğunu ortaya koymaktadır. Her iki grup benzer şekilde yüksek değerlere ulaşsa da, Türkiye yapımlarında daha düşük puanlara rastlanma olasılığı daha yüksektir.</p>
+</section>
+<section id="distribution-of-imdb-ratings-in-relation-to-vote-counts" class="level3">
+<h3 class="anchored" data-anchor-id="distribution-of-imdb-ratings-in-relation-to-vote-counts"><strong><em>3.3 Distribution of IMDb Ratings in Relation to Vote Counts</em></strong></h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies_grouped, <span class="fu">aes</span>(<span class="at">x =</span> votes, <span class="at">y =</span> rating)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">color =</span> <span class="st">"#8e44ad"</span>) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Votes and IMDb Ratings"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of Votes (log scale)"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"IMDb Rating"</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Bu grafik, IMDb üzerindeki filmlerin oy sayıları ile aldıkları puanlar arasındaki ilişkiyi sergilemektedir. Yatay eksen, filmlerin aldığı oy sayısının logaritmik ölçümünü sunarken; dikey eksende IMDb puanları yer almaktadır.</p>
+<p>Dikkat çeken nokta, az oy alan filmlerin çok çeşitli puan aralıklarına yayılmasıdır; bu durum, bu filmler hakkında önemli farklılıkların bulunduğunu göstermektedir. Ancak oy sayısı arttıkça puanlar daha sınırlı bir aralıkta toplanmakta ve genellikle 6 ila 8 arasında yoğunlaşmaktadır. Özellikle 10.000 ve üzeri oy almış filmlerde, puanlar daha tutarlı bir şekilde seyrederken, aşırı düşük veya yüksek puanların sayısının azaldığı göze çarpmaktadır. Bu durum, çok sayıda oy alan filmlerin daha geniş bir kitle tarafından değerlendirildiğini ve bu sebeple puanlarının daha dengeli olduğunu ortaya koymaktadır.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>clust_data <span class="ot">&lt;-</span> combined_movies <span class="sc">%&gt;%</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rating, budget, votes, year, length) <span class="sc">%&gt;%</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="sc">!</span><span class="fu">is.na</span>(.))) <span class="sc">%&gt;%</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">log_budget =</span> <span class="fu">log10</span>(budget <span class="sc">+</span> <span class="dv">1</span>),</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">log_votes =</span> <span class="fu">log10</span>(votes <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rating, log_budget, log_votes, year, length)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>scaled_data <span class="ot">&lt;-</span> <span class="fu">scale</span>(clust_data)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>k_result <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(scaled_data, <span class="at">centers =</span> <span class="dv">3</span>)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>plot_data <span class="ot">&lt;-</span> clust_data <span class="sc">%&gt;%</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cluster =</span> <span class="fu">as.factor</span>(k_result<span class="sc">$</span>cluster))</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_data, <span class="fu">aes</span>(<span class="at">x =</span> log_votes, <span class="at">y =</span> rating, <span class="at">color =</span> cluster)) <span class="sc">+</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">size =</span> <span class="fl">1.2</span>, <span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Improved Cluster Plot: IMDb Rating vs Log(Votes)"</span>,</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Log10(Number of Votes)"</span>, <span class="at">y =</span> <span class="st">"IMDb Rating"</span>) <span class="sc">+</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Bu grafik, IMDb puanı ile logaritmik oy sayısı arasındaki bağlantıyı üç farklı grup halinde sunmaktadır. Gruplar; film puanı, bütçe, süre ve yıl gibi değişkenler ölçeklendirilerek k-means algoritması kullanılarak oluşturulmuştur.</p>
+<ul>
+<li><p><strong>Kırmızı grup (1)</strong>: Yüksek oy alan ve nispeten yüksek puanlara ulaşan popüler filmleri temsil etmektedir.</p></li>
+<li><p><strong>Mavi grup (2)</strong>: Ortalama seviyede oy toplayan ve puanları daha dengeli şekilde dağılmış filmleri göstermektedir.</p></li>
+<li><p><strong>Yeşil grup (3)</strong>: Az oy almasına rağmen yüksek puan alan niş filmleri ifade etmektedir.</p></li>
+</ul>
+<p>Çok oy toplayan tanınmış filmler genellikle yüksek puanlarla öne çıkarken, az oy alan bazı özel filmler de ilginç bir şekilde yüksek puanlar elde etmiştir. Bu durum, popülerlik ile kalite arasında her zaman net bir bağ olmadığını göstermektedir.</p>
+</section>
+<section id="imdb-rating-density-by-mpaa-rating-a-ridge-plot-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="imdb-rating-density-by-mpaa-rating-a-ridge-plot-visualization"><strong><em>3.4 IMDb Rating Density by MPAA Rating: A Ridge Plot Visualization</em></strong></h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>movies_grouped <span class="sc">%&gt;%</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mpaa <span class="sc">!=</span> <span class="st">""</span>) <span class="sc">%&gt;%</span>  <span class="co"># Remove empty values</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> rating, <span class="at">y =</span> mpaa, <span class="at">fill =</span> mpaa)) <span class="sc">+</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density_ridges</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">scale =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"IMDb Rating Density by MPAA Category (Ridge Plot)"</span>,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"IMDb Rating"</span>,</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"MPAA Rating"</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>PG – Parental Guidance Suggested (Ebeveyn Rehberliği Önerilir)</strong><br>
+<strong>PG-13 – Parents Strongly Cautioned (13 Yaş Altı İçin Uygun Değildir)</strong><br>
+<strong>R – Restricted (Kısıtlı):</strong> 17 yaşın altındaki bireylerin bir ebeveyn veya yetişkin refakatinde izlemesi gerekir.<br>
+<strong>NC-17 – No One 17 and Under Admitted (17 Yaş ve Altı İçin Yasaktır):</strong> 17 yaşın altındaki kişilerin filme hiçbir koşulda girmesi yasaktır.</p>
+<p>Bu ridge plot, filmlerin IMDb puanlarının MPAA (Amerikan Film Derecelendirme Sistemi) kategorilerine göre nasıl dağıldığını göstermektedir. Görselde, her bir kategori için IMDb puanlarının hangi aralıklarda yoğunlaştığı açıkça görülebilmektedir.</p>
+<ul>
+<li><p><strong>R kategorisindeki filmler</strong> genellikle 6 ile 7 puan arasında toplanmakta ve oldukça yüksek bir ortalamaya sahip bir dağılım sergilemektedir.</p></li>
+<li><p><strong>PG-13 ve PG kategorisindeki filmler</strong>, daha geniş bir puan aralığına yayılmakta ve çoğunlukla 5 ile 7 puan arasında yoğunlaşmaktadır.</p></li>
+<li><p><strong>NC-17 kategorisine ait filmler</strong> ise genellikle daha düşük puanlar almış ve bu kategoriye ait yoğunluk eğrisi diğerlerinden daha yayvan ve düşük seviyelerde kalmıştır.</p></li>
+</ul>
+<p>Bu durum, yüksek yaş sınırlamasına sahip filmlerin genellikle izleyici kitlesi tarafından daha düşük bir şekilde değerlendirilebileceğini düşündürmektedir. Genel olarak, içerik sınırlamalarının puan dağılımı üzerinde belirgin bir etkisi olduğu gözlemlenmektedir.</p>
+</section>
+<section id="relationship-between-film-length-and-imdb-ratings-a-comparative-sample" class="level3">
+<h3 class="anchored" data-anchor-id="relationship-between-film-length-and-imdb-ratings-a-comparative-sample"><strong><em>3.5 Relationship Between Film Length and IMDb Ratings: A Comparative Sample</em></strong></h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define vote groups more evenly</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>movies_grouped <span class="ot">&lt;-</span> movies_grouped <span class="sc">%&gt;%</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">vote_group =</span> <span class="fu">case_when</span>(</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    votes <span class="sc">&lt;</span> <span class="dv">500</span> <span class="sc">~</span> <span class="st">"Low"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    votes <span class="sc">&lt;</span> <span class="dv">5000</span> <span class="sc">~</span> <span class="st">"Medium"</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"High"</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample 5 films per vote group for Turkey and Global</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>turkey_sample <span class="ot">&lt;-</span> movies_grouped <span class="sc">%&gt;%</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Turkey"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vote_group) <span class="sc">%&gt;%</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>global_sample <span class="ot">&lt;-</span> movies_grouped <span class="sc">%&gt;%</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Global"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vote_group) <span class="sc">%&gt;%</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine samples</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>sampled_movies <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(turkey_sample, global_sample)</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom vote group colors</span></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>vote_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Low"</span> <span class="ot">=</span> <span class="st">"#e78ac3"</span>,    <span class="co"># Pink</span></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Medium"</span> <span class="ot">=</span> <span class="st">"#80b1d3"</span>, <span class="co"># Blue</span></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"High"</span> <span class="ot">=</span> <span class="st">"#4daf4a"</span>)   <span class="co"># Green</span></span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sampled_movies, <span class="fu">aes</span>(<span class="at">x =</span> length, <span class="at">y =</span> rating, <span class="at">color =</span> vote_group, <span class="at">shape =</span> country)) <span class="sc">+</span></span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> vote_colors) <span class="sc">+</span></span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Global"</span> <span class="ot">=</span> <span class="dv">16</span>, <span class="st">"Turkey"</span> <span class="ot">=</span> <span class="dv">17</span>)) <span class="sc">+</span></span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Relationship Between Film Duration and IMDb Rating"</span>,</span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Color-coded by vote group | Equal samples per group"</span>,</span>
+<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Film Duration (min)"</span>,</span>
+<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"IMDb Rating"</span>,</span>
+<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Vote Group"</span>,</span>
+<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="st">"Country"</span></span>
+<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-46"><a href="#cb17-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">150</span>) <span class="sc">+</span></span>
+<span id="cb17-47"><a href="#cb17-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Bu grafik, film uzunluğu ile IMDb puanı arasındaki ilişkiyi; oy sayısına (Düşük, Orta, Yüksek) ve ülkeye (Küresel, Türkiye) göre göstermektedir.</p>
+<p>Net bir doğrusal ilişki mevcut olmasa da, uzun filmlerin puan aralığı daha geniş bir yelpazeye sahiptir. Yüksek oy alan bazı uzun filmler, daha yüksek puanlar elde etmiştir. Türkiye’de üretilen filmler genellikle daha kısa ve puanları daha değişkendir. Bu durum, film süresinin tek başına belirleyici bir etken olmadığını; oy sayısı ve ülke gibi diğer unsurlarla birlikte ele alınması gerektiğini ortaya koymaktadır.</p>
+</section>
+<section id="beeswarm-plot-of-imdb-ratings-by-genre" class="level3">
+<h3 class="anchored" data-anchor-id="beeswarm-plot-of-imdb-ratings-by-genre"><strong><em>3.6 Beeswarm Plot of IMDb Ratings by Genre</em></strong></h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggbeeswarm)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Ensure reproducible sampling</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>movies_sampled <span class="ot">&lt;-</span> movies_grouped <span class="sc">%&gt;%</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> Action<span class="sc">:</span>Short, <span class="at">names_to =</span> <span class="st">"Genre"</span>, <span class="at">values_to =</span> <span class="st">"IsGenre"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(IsGenre <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Genre) <span class="sc">%&gt;%</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">50</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(movies_sampled, <span class="fu">aes</span>(<span class="at">x =</span> Genre, <span class="at">y =</span> rating, <span class="at">color =</span> Genre)) <span class="sc">+</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_beeswarm</span>(<span class="at">cex =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"IMDb Rating Distribution by Genre (Beeswarm)"</span>,</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"50 films were randomly sampled from each genre"</span>,</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Genre"</span>,</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"IMDb Rating"</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Bu beeswarm grafiği, çeşitli film türlerinin IMDb puanlarının dağılımını sunmaktadır. Her türden rastgele seçilen 50 film kullanılarak hazırlanan grafik, türler arasındaki puan farklılıklarını ayrıntılı bir şekilde göstermektedir.</p>
+<p>Belgesel türündeki filmler genellikle daha yüksek puanlar alırken; komedi ve dram türlerinde puanlar daha geniş bir yelpazede dağılmıştır. Animasyon ve romantik türler ise daha dar bir dağılım göstermekte olup, 6–8 aralığında yoğunlaşmaktadır. Bu dağılım, türün içeriği ve hedef izleyici kitlesinin, izleyici değerlendirmelerinde belirleyici bir etken olduğunu ortaya koymaktadır.</p>
+</section>
+<section id="heatmap-of-genre-distribution-across-imdb-rating-ranges" class="level3">
+<h3 class="anchored" data-anchor-id="heatmap-of-genre-distribution-across-imdb-rating-ranges"><strong><em>3.7 Heatmap of Genre Distribution Across IMDb Rating Ranges</em></strong></h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>heat_data <span class="ot">&lt;-</span> movies_grouped <span class="sc">%&gt;%</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> Action<span class="sc">:</span>Short, <span class="at">names_to =</span> <span class="st">"Genre"</span>, <span class="at">values_to =</span> <span class="st">"IsGenre"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(IsGenre <span class="sc">==</span> <span class="dv">1</span>, <span class="sc">!</span><span class="fu">is.na</span>(rating)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rating_group =</span> <span class="fu">cut</span>(rating, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">1</span>), <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(rating_group, Genre)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(heat_data, <span class="fu">aes</span>(<span class="at">x =</span> Genre, <span class="at">y =</span> rating_group, <span class="at">fill =</span> n)) <span class="sc">+</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">"grey80"</span>) <span class="sc">+</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> n), <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>(<span class="at">option =</span> <span class="st">"plasma"</span>, <span class="at">na.value =</span> <span class="st">"grey90"</span>) <span class="sc">+</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Genre Frequency by IMDb Rating Range"</span>,</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Which genres dominate which rating intervals?"</span>,</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Genre"</span>,</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"IMDb Rating Range"</span>,</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Number of Films"</span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>)</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Bu ısı haritası, farklı film türlerinin IMDb puan aralıklarına göre ne sıklıkta dağıldığını göstermektedir. Yatay eksende film türleri, dikey eksende ise IMDb puan dilimleri bulunmaktadır; hücrelerin renkleri ve içindeki sayılar, her puan diliminde bulunan film sayısını temsil etmektedir.</p>
+<p><strong>En yoğun alan, (6,7] puan aralığındaki Drama filmi sayısıdır</strong> (6726 adet); bu durum, dram türünün genelde orta-yüksek puan aralığında yoğunlaştığını göstermektedir. <strong>Komedi ve Belgesel türleri de 6–8 puan aralığında yüksek sayıda filmle dikkat çekmektedir.</strong> Diğer taraftan, 8’in üzerinde yüksek puan alan filmlerin sayısı genel olarak daha azdır ve bu yüksek puanlara en çok ulaşan türler Belgesel, Animasyon ve Drama olmuştur.</p>
+<p><strong>Bu görsel, hangi film türlerinin hangi puan aralıklarında daha fazla yer aldığını açık bir şekilde göstermektedir.</strong></p>
+</section>
+<section id="imdb-rating-distributions-by-production-budget-groups" class="level3">
+<h3 class="anchored" data-anchor-id="imdb-rating-distributions-by-production-budget-groups"><strong><em>3.8 IMDb Rating Distributions by Production Budget Groups</em></strong></h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>movies_grouped <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(budget), <span class="sc">!</span><span class="fu">is.na</span>(rating)) <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">budget_group =</span> <span class="fu">cut</span>(<span class="fu">log10</span>(budget),</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>),</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"10^2-10^5"</span>, <span class="st">"10^5-10^6"</span>, <span class="st">"10^6-10^7"</span>, <span class="st">"10^7-10^8"</span>, <span class="st">"10^8+"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(budget_group)) <span class="sc">%&gt;%</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> rating, <span class="at">fill =</span> budget_group)) <span class="sc">+</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"10^2-10^5"</span> <span class="ot">=</span> <span class="st">"#F40020"</span>,</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"10^5-10^6"</span> <span class="ot">=</span> <span class="st">"#7CAE00"</span>,</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"10^6-10^7"</span> <span class="ot">=</span> <span class="st">"#00BFC4"</span>,</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"10^7-10^8"</span> <span class="ot">=</span> <span class="st">"#C77CFF"</span>,</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"10^8+"</span>     <span class="ot">=</span> <span class="st">"#E6F700"</span>)) <span class="sc">+</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of IMDb Ratings by Budget Group"</span>,</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Budgets categorized by log scale"</span> ,</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"IMDb Rating"</span>,</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Density"</span>,</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Budget Range"</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Bu grafikte, IMDb puanlarının film bütçesi kategorilerine göre nasıl dağıldığına dair bilgiler yer almaktadır. Yüksek bütçeli yapımlar (10⁸+), genellikle 6 ile 8 arasında yoğunlaşarak daha belirgin bir tutarlılık sergilemektedir. Orta bütçeli filmler, puanlarını daha dar bir aralıkta toplarken; düşük bütçeli filmlerin puanları ise çok daha dağınık ve dengesiz bir dağılıma sahiptir. Bu durum, bütçenin artışıyla birlikte film kalitesinin ve izleyici memnuniyetinin daha tutarlı bir hale geldiğini göstermektedir.</p>
+</section>
+<section id="average-star-ratings-r1-r10-by-genre" class="level3">
+<h3 class="anchored" data-anchor-id="average-star-ratings-r1-r10-by-genre"><strong><em>3.9 Average Star Ratings (r1-r10) by Genre</em></strong></h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define rater levels</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>rater_levels <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"r"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>line_plot_data <span class="ot">&lt;-</span> movies_grouped <span class="sc">%&gt;%</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> r1<span class="sc">:</span>r10, <span class="at">names_to =</span> <span class="st">"Rater"</span>, <span class="at">values_to =</span> <span class="st">"RaterRating"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> Action<span class="sc">:</span>Short, <span class="at">names_to =</span> <span class="st">"Genre"</span>, <span class="at">values_to =</span> <span class="st">"IsGenre"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(IsGenre <span class="sc">==</span> <span class="dv">1</span>, <span class="sc">!</span><span class="fu">is.na</span>(RaterRating)) <span class="sc">%&gt;%</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Rater =</span> <span class="fu">factor</span>(Rater, <span class="at">levels =</span> rater_levels)) <span class="sc">%&gt;%</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Genre, Rater) <span class="sc">%&gt;%</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_rating =</span> <span class="fu">mean</span>(RaterRating, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>line_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(line_plot_data, <span class="fu">aes</span>(<span class="at">x =</span> Genre, <span class="at">y =</span> avg_rating, <span class="at">group =</span> Rater, <span class="at">color =</span> Rater)) <span class="sc">+</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Average Star Ratings (r1-r10) Across Genres"</span>,</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Which genres received higher scores from which raters?"</span>,</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Genre"</span>,</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Average Star Rating"</span>,</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Rater"</span></span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"right"</span></span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(line_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong><code>r1</code>–<code>r10</code> sütunları, IMDb kullanıcılarının bir filme verdikleri yıldız puanlarının dağılımını gösterir. Örneğin, <code>r1</code> değeri 10 ise, filme 10 kişinin 1 yıldız verdiği anlamına gelir.</strong></p>
+<p>Bu grafik, IMDb kullanıcılarının film türlerine verdikleri yıldız oylarının dağılımını göstermektedir. Özellikle <code>r9</code> ve <code>r10</code> kullanıcıları, Belgesel ve Kısa filmler için yüksek puanlar (9–10 yıldız) vermiştir. Belgesel türü, <code>r9</code> kullanıcıları tarafından en fazla beğenilen tür olarak öne çıkarken; Kısa filmler de <code>r10</code> grubundan yüksek değerlendirme almıştır.</p>
+<p>Düşük yıldız veren gruplar (<code>r1</code>–<code>r3</code>) genel olarak tüm türlere düşük puanlar verirken, Drama ve Komedi türleri bu gruplardan biraz daha fazla olumsuz geri dönüş almıştır. Bu durum, izleyici tercihlerinin yıldız düzeylerine göre türler arasında farklılık gösterdiğini ortaya koymaktadır.</p>
+</section>
+<section id="most-frequent-words-in-movie-titles" class="level3">
+<h3 class="anchored" data-anchor-id="most-frequent-words-in-movie-titles"><strong><em>3.10 Most Frequent Words in Movie Titles</em></strong></h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggwordcloud)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Stopwords to exclude</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>remove_words <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"the"</span>, <span class="st">"and"</span>, <span class="st">"for"</span>, <span class="st">"with"</span>, <span class="st">"from"</span>, <span class="st">"you"</span>, <span class="st">"your"</span>, <span class="st">"are"</span>, <span class="st">"not"</span>, <span class="st">"this"</span>, <span class="st">"that"</span>, <span class="st">"what"</span>, <span class="st">"who"</span>, <span class="st">"film"</span>, <span class="st">"movie"</span>, <span class="st">"its"</span>, <span class="st">"was"</span>, <span class="st">"has"</span>, <span class="st">"have"</span>, <span class="st">"one"</span>, <span class="st">"all"</span>,<span class="st">"der"</span>,<span class="st">"die"</span>,<span class="st">"les"</span>,<span class="st">"del"</span>,<span class="st">"sex"</span>,<span class="st">"des"</span>,<span class="st">"das"</span>,<span class="st">"his"</span>,<span class="st">"los"</span>,<span class="st">"las"</span>,<span class="st">"una"</span>,<span class="st">"town"</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize and count words</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>word_count <span class="ot">&lt;-</span> movies_grouped <span class="sc">%&gt;%</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">title =</span> <span class="fu">str_to_lower</span>(title)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">title =</span> <span class="fu">str_replace_all</span>(title, <span class="st">"[^a-z0-9</span><span class="sc">\\</span><span class="st">s]"</span>, <span class="st">""</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate_rows</span>(title, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_length</span>(title) <span class="sc">&gt;</span> <span class="dv">2</span>, <span class="sc">!</span>(title <span class="sc">%in%</span> remove_words)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title) <span class="sc">%&gt;%</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Take top 80 frequent words</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>word_count_top <span class="ot">&lt;-</span> word_count <span class="sc">%&gt;%</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">80</span>)</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Word Cloud Visualization</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(word_count_top, <span class="fu">aes</span>(<span class="at">label =</span> title, <span class="at">size =</span> count, <span class="at">color =</span> count)) <span class="sc">+</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_wordcloud_area</span>(<span class="at">eccentricity =</span> <span class="fl">0.65</span>) <span class="sc">+</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_c</span>(<span class="at">option =</span> <span class="st">"turbo"</span>) <span class="sc">+</span></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Most Frequent Words in Movie Titles"</span>,</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Top 100 most frequent words"</span></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>)</span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Bu kelime bulutu, film isimlerinde en çok rastlanan ilk 100 kelimeyi göstermektedir.</p>
+<p>Grafikte en dikkat çekici ve büyük harflerle öne çıkan kelimeler arasında; insan temaları, duygular, zaman ve mekân gibi kavramların yer aldığı görülmektedir. Bu durum, sinemada anlatılan hikâyelerin sıklıkla bu temalar etrafında şekillendiğini ve izleyiciyle bağ kurmakta önemli rol oynadığını vurgulamaktadır.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>remove_words <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"the"</span>, <span class="st">"and"</span>, <span class="st">"for"</span>, <span class="st">"with"</span>, <span class="st">"from"</span>, <span class="st">"you"</span>, <span class="st">"your"</span>, <span class="st">"are"</span>, <span class="st">"not"</span>, <span class="st">"this"</span>, <span class="st">"that"</span>, <span class="st">"what"</span>, <span class="st">"who"</span>, <span class="st">"film"</span>, <span class="st">"movie"</span>, <span class="st">"its"</span>, <span class="st">"was"</span>, <span class="st">"has"</span>, <span class="st">"have"</span>, <span class="st">"one"</span>, <span class="st">"all"</span>, <span class="st">"der"</span>, <span class="st">"die"</span>, <span class="st">"les"</span>, <span class="st">"del"</span>, <span class="st">"sex"</span>, <span class="st">"des"</span>, <span class="st">"das"</span>, <span class="st">"his"</span>, <span class="st">"los"</span>, <span class="st">"las"</span>, <span class="st">"una"</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize and clean</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>word_data <span class="ot">&lt;-</span> movies_grouped <span class="sc">%&gt;%</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(rating)) <span class="sc">%&gt;%</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">title =</span> <span class="fu">str_to_lower</span>(title)) <span class="sc">%&gt;%</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">title =</span> <span class="fu">str_replace_all</span>(title, <span class="st">"[^a-z0-9</span><span class="sc">\\</span><span class="st">s]"</span>, <span class="st">""</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate_rows</span>(title, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_length</span>(title) <span class="sc">&gt;</span> <span class="dv">2</span>, <span class="sc">!</span>(title <span class="sc">%in%</span> remove_words))</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 20 most frequent words</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>top_words <span class="ot">&lt;-</span> word_data <span class="sc">%&gt;%</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(title, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">20</span>)</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate average rating for top words</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>top_word_ratings <span class="ot">&lt;-</span> word_data <span class="sc">%&gt;%</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(title <span class="sc">%in%</span> top_words<span class="sc">$</span>title) <span class="sc">%&gt;%</span></span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title) <span class="sc">%&gt;%</span></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_rating =</span> <span class="fu">mean</span>(rating, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">count =</span> <span class="fu">n</span>()</span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_rating))</span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot with values</span></span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(top_word_ratings, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(title, avg_rating), <span class="at">y =</span> avg_rating)) <span class="sc">+</span></span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#00BFC4"</span>) <span class="sc">+</span></span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(avg_rating, <span class="dv">2</span>)), <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Average IMDb by Most Frequent Title Words"</span>,</span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Top-rated words among the 20 most common in movie titles"</span>,</span>
+<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Word"</span>,</span>
+<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Average IMDb Rating"</span></span>
+<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>)</span>
+<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Bu grafik, film isimlerinde en yaygın 20 terimi barındıran yapımların ortalama IMDb puanlarını göstermektedir. “Life”, “Story” ve “Day” kelimeleri geçen filmler, oldukça yüksek ortalama puanlara ulaşmıştır (6.14–6.34 arası). Bu durum, başlıklarda yer alan ifadelerin izleyici algısıyla ve beğenileriyle bağlantılı olabileceğini göstermektedir.</p>
 </section>
 </section>
-<section id="analysis" class="level1">
-<h1>3. Analysis</h1>
-<p>xxxxxx</p>
-<section id="exploratory-data-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="exploratory-data-analysis">3.1 Exploratory Data Analysis</h2>
-<p>xxxxxx</p>
+<section id="linear-regression-model" class="level2">
+<h2 class="anchored" data-anchor-id="linear-regression-model"><strong>4. Linear Regression Model</strong></h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>combined_movies<span class="sc">$</span>log_budget <span class="ot">&lt;-</span> <span class="fu">log10</span>(combined_movies<span class="sc">$</span>budget)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>base_theme <span class="ot">&lt;-</span> <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">13</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>),</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">30</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>g1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(combined_movies, <span class="fu">aes</span>(<span class="at">x =</span> log_budget, <span class="at">y =</span> rating)) <span class="sc">+</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Log(Budget)"</span>, <span class="at">x =</span> <span class="st">"Log10(Budget)"</span>, <span class="at">y =</span> <span class="st">"IMDb Rating"</span>) <span class="sc">+</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>  base_theme</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>g2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(combined_movies, <span class="fu">aes</span>(<span class="at">x =</span> votes, <span class="at">y =</span> rating)) <span class="sc">+</span></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Votes"</span>, <span class="at">x =</span> <span class="st">"Number of Votes"</span>, <span class="at">y =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>  base_theme</span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>(g1 <span class="sc">|</span> g2 ) <span class="sc">+</span> </span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">guides =</span> <span class="st">"collect"</span>) <span class="sc">+</span> </span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(</span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"IMDb Rating Regressions by Predictor"</span>,</span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">theme =</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Bu grafik, IMDb değerlendirme puanlarının bütçe ve oy sayısıyla olan bağlantısını regresyon analizleri aracılığıyla göstermektedir.</strong></p>
+<ul>
+<li><p><strong>Sol grafikte:</strong> Logaritmik bütçe ile IMDb puanı arasındaki ilişki görülmektedir. Eğilim çizgisi işaret etmektedir ki, bütçedeki artışla birlikte puanlarda hafif bir düşüş eğilimi vardır; ancak bu bağ oldukça zayıf düzeydedir.</p></li>
+<li><p><strong>Sağ grafikte:</strong> Oy sayısı ile IMDb puanı arasındaki ilişki oldukça güçlü ve olumlu bir karakter sergilemektedir. Oy sayısı arttıkça IMDb puanı da yükselmekte, bu da popüler filmlerin genellikle daha yüksek değerlendirmelere sahip olduğunu ortaya koymaktadır.</p></li>
+</ul>
+<p><strong>Puanlar açısından oy sayısının etkisi daha belirginken, bütçenin etkisi sınırlı ve negatif bir niteliktedir.</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car) </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>movies_model <span class="ot">&lt;-</span> combined_movies <span class="sc">%&gt;%</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(rating), <span class="sc">!</span><span class="fu">is.na</span>(budget), <span class="sc">!</span><span class="fu">is.na</span>(votes), <span class="sc">!</span><span class="fu">is.na</span>(year)) <span class="sc">%&gt;%</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_budget =</span> <span class="fu">log10</span>(budget <span class="sc">+</span> <span class="dv">1</span>))</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(rating <span class="sc">~</span> log_budget <span class="sc">+</span> votes <span class="sc">+</span> year, <span class="at">data =</span> movies_model)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = rating ~ log_budget + votes + year, data = movies_model)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-6.0606 -0.8093  0.1959  0.9841  3.9368 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  1.667e+01  1.860e+00   8.963  &lt; 2e-16 ***
+log_budget  -2.312e-01  1.685e-02 -13.725  &lt; 2e-16 ***
+votes        4.538e-05  1.862e-06  24.365  &lt; 2e-16 ***
+year        -4.696e-03  9.428e-04  -4.980 6.55e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.46 on 5211 degrees of freedom
+Multiple R-squared:  0.1104,    Adjusted R-squared:  0.1099 
+F-statistic: 215.5 on 3 and 5211 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>log_budget      votes       year 
+  1.165258   1.148283   1.033985 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="diagnostic-evaluation-of-the-linear-regression-model" class="level3">
+<h3 class="anchored" data-anchor-id="diagnostic-evaluation-of-the-linear-regression-model"><strong>4.1 Diagnostic Evaluation of the Linear Regression Model</strong></h3>
+<p><strong>Bu dört grafik, doğrusal regresyon modelinin temel varsayımlarını test etmek için kullanılmaktadır.</strong></p>
+<ul>
+<li><p><strong>Residuals vs Fitted grafiği</strong>, artıkların tahmin edilen değerlere göre nasıl dağıldığını gösterir. Grafikte hafif bir eğrilik görülmektedir; bu durum, doğrusal ilişki varsayımının tam olarak sağlanmadığını düşündürmektedir.</p></li>
+<li><p><strong>Normal Q-Q Plot</strong>, artıkların normal dağılıma ne ölçüde uyduğunu göstermektedir. Uç noktalarda sapmalar mevcuttur; bu da artıkların tam anlamıyla normal şekilde dağılmadığını ortaya koyar.</p></li>
+<li><p><strong>Scale-Location grafiği</strong>, varyansın sabitliğini (homoskedastisite) inceler. Artan tahmin değerleriyle birlikte artıkların yayılımının da arttığı gözlemlenmektedir; bu durum, modelde <strong>heteroskedastisite</strong> (değişken varyans) sorunu olduğunu göstermektedir.</p></li>
+<li><p><strong>Residuals vs Leverage grafiği</strong>, model üzerindeki etkili gözlemleri belirlemeyi amaçlar. Grafikte bazı gözlemler (örneğin 2979 ve 21798), Cook’s distance sınırını aşmaktadır; bu da bu gözlemlerin model üzerinde orantısız bir etkisi olabileceğini göstermektedir.</p></li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Tanı Grafiği</strong></th>
+<th><strong>Amaç</strong></th>
+<th><strong>Gözlem</strong></th>
+<th><strong>Yorum</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Residuals vs Fitted</strong></td>
+<td>Doğrusallığı kontrol etmek</td>
+<td>Hafif eğrilik gözlemleniyor</td>
+<td>Modelde doğrusal olmayan bir ilişki olabilir</td>
+</tr>
+<tr class="even">
+<td><strong>Normal Q-Q Plot</strong></td>
+<td>Artıkların normalliğini değerlendirmek</td>
+<td>Uç değerlerde sapma var</td>
+<td>Artıklar tam olarak normal dağılmıyor olabilir</td>
+</tr>
+<tr class="odd">
+<td><strong>Scale-Location</strong></td>
+<td>Varyansın sabitliğini (homoskedastisite) test etmek</td>
+<td>Tahminler arttıkça yayılım da artıyor</td>
+<td>Heteroskedastisite (değişken varyans) olabilir</td>
+</tr>
+<tr class="even">
+<td><strong>Residuals vs Leverage</strong></td>
+<td>Aykırı ve etkili gözlemleri tespit etmek</td>
+<td>Bazı noktalar Cook’s distance sınırını aşıyor (örn. 2979, 21798)</td>
+<td>Model üzerinde etkili (influential) gözlemler olabilir</td>
+</tr>
+</tbody>
+</table>
+<div class="cell">
+<details class="code-fold">
+<summary>Kodu Göster / Gizle</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = rating ~ log_budget + votes + year, data = movies_model)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-6.0606 -0.8093  0.1959  0.9841  3.9368 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  1.667e+01  1.860e+00   8.963  &lt; 2e-16 ***
+log_budget  -2.312e-01  1.685e-02 -13.725  &lt; 2e-16 ***
+votes        4.538e-05  1.862e-06  24.365  &lt; 2e-16 ***
+year        -4.696e-03  9.428e-04  -4.980 6.55e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.46 on 5211 degrees of freedom
+Multiple R-squared:  0.1104,    Adjusted R-squared:  0.1099 
+F-statistic: 215.5 on 3 and 5211 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
 </section>
-<section id="trend-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="trend-analysis">3.2 Trend Analysis</h2>
-<p>xxxxxx</p>
+<section id="interpretation-of-regression-output" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation-of-regression-output"><strong>4.2 Interpretation of Regression Output</strong></h3>
+<p><strong><code>log_budget</code> katsayısı -0.231 ve istatistiksel olarak anlamlıdır (p &lt; 0.001).</strong><br>
+Bu, bütçe arttıkça IMDb puanının hafifçe azalma eğiliminde olduğunu gösterir. Yani, yüksek bütçeli filmler her zaman daha yüksek puan almamaktadır.</p>
+<p><strong><code>votes</code> katsayısı 0.000045 ve oldukça anlamlıdır.</strong><br>
+Oy sayısı arttıkça IMDb puanının da artma eğiliminde olduğu görülmektedir. Bu, popüler filmlerin genellikle daha yüksek puanlandığını göstermektedir.</p>
 </section>
-<section id="model-fitting" class="level2">
-<h2 class="anchored" data-anchor-id="model-fitting">3.3 Model Fitting</h2>
-<p>xxxxxx</p>
+<section id="model-performans" class="level3">
+<h3 class="anchored" data-anchor-id="model-performans"><strong>4.3 Model Performans</strong></h3>
+<p><strong>R² = 0.1104:</strong> Bağımsız değişkenler, IMDb puanlarındaki toplam varyansın yaklaşık %11’ini açıklamaktadır. Bu oldukça düşük bir orandır ve filmlerin puanlarını etkileyen birçok başka faktör olduğunu göstermektedir.</p>
+<p><strong>Residual standard error: 1.46</strong> — Ortalama hata yaklaşık 1.46 puan civarındadır.</p>
+<p><strong>F-istatistiği anlamlıdır (p &lt; 0.001),</strong> yani model genel olarak istatistiksel olarak anlamlıdır.</p>
+<p>Modeldeki tüm değişkenler istatistiksel olarak anlamlıdır. Ancak düşük R² değeri, IMDb puanlarının yalnızca bütçe, oy sayısı ve yıl gibi faktörlerle tam olarak açıklanamayacağını; hikâye, oyunculuk, yönetmenlik gibi daha soyut değişkenlerin de önemli rol oynadığını göstermektedir.</p>
 </section>
-<section id="results" class="level2">
-<h2 class="anchored" data-anchor-id="results">3.4 Results</h2>
-<p>xxxxxx</p>
 </section>
-</section>
-<section id="results-and-key-takeaways" class="level1">
-<h1>4. Results and Key Takeaways</h1>
-<p>xxxxxx</p>
+<section id="results-and-key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-key-takeaways"><strong>5. Results and Key Takeaways</strong></h2>
+<p>Bu çalışmada, global ve yerel film veri kümelerinin bir araya getirilmesiyle oluşturulan detaylı bir veri seti aracılığıyla, çeşitli film türlerinin izleyici değerlendirmeleri üzerindeki etkileri incelenmiştir. Yapılan analizler sonucunda bazı önemli sonuçlar ortaya çıkmıştır: Genel eğilimlere bakıldığında, global filmler Türkiye yapımı filmlere oranla daha yüksek ve dengeli IMDb puanları almıştır. Ancak bazı yerel yapımlar, az sayıda oy almasına rağmen yüksek puanlar alarak dikkati üzerine çekmiştir. Film türlerinin popülaritesi, izleyicilerin değerlendirmelerinde büyük bir öneme sahiptir. Belgesel, animasyon ve dram gibi türler genellikle daha yüksek puanlar alırken, bazı türlerde puan dağılımı daha düzensiz olmuştur. Oy sayısının, IMDb puanları üzerinde belirgin bir etkisi bulunmaktadır. Daha fazla oy alan filmler genellikle daha yüksek ve dengeli puanlar elde ederken, az oy alan filmler daha uç değerler göstermektedir. Bu durum, popülaritenin kalite algısını etkileyebileceğini göstermektedir. Bütçe ile IMDb puanı arasında doğrudan bir olumlu ilişki kurulamadığı için yüksek bütçeli filmlerin daha yüksek puanlar aldığı hakkında genel düşünce zayıf kalmıştır. Ancak, oy sayısı ile puan arasında güçlü ve anlamlı bir ilişki bulunmuştur. Film süresi, MPAA kategorileri ve başlıktaki kelimeler gibi diğer faktörlerin de izleyici puanlarını etkileyebileceği gözlemlenmiştir; fakat bu etkilerin çoğu dolaylı veya bağlamsal olarak değerlendirilmiştir. Sonuç olarak bu analiz, film değerlendirme süreçlerini etkileyen birçok faktörün bulunduğunu ve bu faktörlerin sadece sayısal verilerle değil, kültürel ve içeriksel bağlamlarla birlikte incelenmesi gerektiğini ortaya koymaktadır. Elde edilen bulgular, yapımcılar, dağıtımcılar ve dijital platformlar için izleyici davranışlarını daha iyi anlamak açısından değerli bilgiler sunmaktadır.</p>
 
 
 </section>
@@ -570,150 +1284,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
