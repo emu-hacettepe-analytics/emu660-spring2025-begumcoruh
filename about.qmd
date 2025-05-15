@@ -22,7 +22,7 @@ sidebar: false
 
 # Projects
 
-1.  MAN Türkiye, Graduation Project
+1.  MAN Türkiye, Graduation Projectt
 
 2.  TürkŞeker Ankara Machinery Factory, Quality Control and Planning Project
 
