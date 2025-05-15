@@ -810,7 +810,7 @@ plot(model)
     Grafikte bazı gözlemler (örneğin 2979 ve 21798), Cook’s distance sınırını aşmaktadır; bu da bu gözlemlerin model üzerinde orantısız bir etkisi olabileceğini göstermektedir.
 
 | **Tanı Grafiği** | **Amaç** | **Gözlem** | **Yorum** |
-|------------------|------------------|------------------|-------------------|
+|----|----|----|----|
 | **Residuals vs Fitted** | Doğrusallığı kontrol etmek | Hafif eğrilik gözlemleniyor | Modelde doğrusal olmayan bir ilişki olabilir |
 | **Normal Q-Q Plot** | Artıkların normalliğini değerlendirmek | Uç değerlerde sapma var | Artıklar tam olarak normal dağılmıyor olabilir |
 | **Scale-Location** | Varyansın sabitliğini (homoskedastisite) test etmek | Tahminler arttıkça yayılım da artıyor | Heteroskedastisite (değişken varyans) olabilir |
