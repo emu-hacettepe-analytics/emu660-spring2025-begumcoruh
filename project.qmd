@@ -1,59 +1,92 @@
 ---
-title: "<div style='text-align:center;'><span style='color:red; font-style:italic;'>Project Genre Matters: Exploring Film Audience Preferences</span></div>"
+title: "Project Genre Matters: Exploring Film Audience Preferences"
+format:
+  html:
+    theme: journal
+    css: styles.css
+    code-fold: true
+    code-summary: "Kodu Göster / Gizle"
+  pdf:
+    keep-md: true
+execute:
+  warning: false
+  message: false
+editor:
+  markdown:
+    wrap: sentence
+encoding: UTF-8
 ---
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+
+![](images/project2.gif){fig-align="center" width="50%"}
 
 Welcome to our project page.
 
-***Begum CORUH & Eda GONEN***
+***Begüm ÇORUH & Eda GÖNEN***
 
-Keep an eye on this space to stay updated with my project activities.
+Keep an eye on this space to stay updated with our project activities.
 
 ## ***1.Project Overview and Scope***
 
-In this project, we aim to analyze how different movie genres perform in terms of audience preferences. Our primary focus is to identify genre-based patterns in film popularity and ratings, using a data-driven approach. To make the analysis more meaningful and localized, we enriched a widely-used global movie dataset by merging it with a Turkish-specific movie dataset. Through this project, we plan to discover whether certain genres are more successful among audiences and if factors like production year, runtime, or budget have a significant effect on genre-based popularity.
+Bu projede, farklı film türlerinin izleyici tercihleri açısından nasıl bir performans gösterdiğini analiz etmeyi amaçlıyoruz.
+Temel odak noktamız, tür bazlı popülerlik ve puanlamalarda öne çıkan eğilimleri veriye dayalı bir yaklaşımla ortaya koymaktır.
+
+Analizi daha anlamlı ve yerel hale getirebilmek için, yaygın olarak kullanılan küresel bir film veri setini, Türkiye’ye özgü bir film veri setiyle birleştirerek zenginleştirdik.
+
+Bu proje aracılığıyla, ***belirli türlerin izleyiciler arasında daha başarılı olup olmadığını; ayrıca yapım yılı, film süresi ve bütçe gibi faktörlerin tür bazlı popülerlik üzerinde anlamlı bir etkisinin olup olmadığını*** keşfetmeyi hedefliyoruz.
 
 ## ***2.Data***
 
-We based our analysis on a combined dataset. The core dataset is *ggplot2movies*, which includes information about thousands of films worldwide.
+Analizimiz, birleştirilmiş bir veri seti üzerine kurulmuştur.
+Temel veri seti, dünya genelinde binlerce filme ait bilgileri içeren **`ggplot2movies`** veri setidir.
 
-To create a more localized perspective, we merged this dataset with a Turkish movie dataset.
+Daha yerelleştirilmiş bir bakış açısı oluşturmak amacıyla bu veri seti, Türk filmlerine ait bir veri setiyle birleştirilmiştir.
 
-The combined data allowed us to create new variables, such as Turkish-specific ratings and popularity scores, which we will use in our comparative analysis.
+Bu birleşim sayesinde, ***analizde kullanmak üzere Türkiye’ye özgü puanlama ve popülerlik skorları gibi yeni değişkenler oluşturulmuş; böylece küresel ve yerel düzeyde karşılaştırmalı değerlendirmeler yapılmasına olanak sağlanmıştır***.
 
 ### ***2.1 Data Source***
 
--   The global movie data is sourced from the open-access *ggplot2movies* dataset, widely used in data analysis and visualization projects.
+-   Küresel film verisi, veri analizi ve görselleştirme projelerinde yaygın olarak kullanılan açık erişimli `ggplot2movies` veri setinden alınmıştır.
 
--   The Turkish-specific data was obtained from Kaggle, specifically from the [Turkish Movies Dataset](https://www.kaggle.com/datasets/emreokcular/turkish-movies) shared by Emre OkC'ular.
+-   Türkiye’ye özgü veriler ise, Kaggle platformunda Emre Okçular tarafından paylaşılan [Turkish Movies Dataset](https://www.kaggle.com/datasets/emreokcular/turkish-movies) adlı veri setinden temin edilmiştir.
 
--   Both datasets provide rich information such as film titles, genres, production years, runtimes, IMDb ratings, and other useful attributes for our analysis.
+-   Her iki veri seti de film adları, türleri, yapım yılları, süreleri, IMDb puanları ve analiz için faydalı olabilecek çeşitli diğer nitelikler açısından zengin bir içerik sunmaktadır.
 
 ### **2.*2 Reasons of Choice***
 
-We selected this dataset because it offers a rich and diverse set of information about movies across different genres and periods. The global *ggplot2movies* dataset provides a well-organized structure for large-scale analysis, while the Turkish Movies dataset adds a localized dimension to the study, making it more relevant to regional audience preferences. The combination of both datasets allows us to explore general trends as well as cultural differences in movie genre popularity. Moreover, the variety of available variables such as genre, rating, year, runtime, and awards creates multiple opportunities for deeper analytical approaches.
+Bu veri seti, farklı türler ve dönemler boyunca filmlere dair zengin ve çeşitli bilgiler sunduğu için tercih edilmiştir.
+
+**Küresel `ggplot2movies`** veri seti, büyük ölçekli analizler için düzenli ve kapsamlı bir yapı sunarken;
+
+**Türk Filmleri veri seti**, çalışmaya yerel bir boyut kazandırarak bölgesel izleyici tercihlerine yönelik daha anlamlı çıkarımlar yapılmasına olanak tanımaktadır.
+
+Her iki veri setinin birleştirilmesi sayesinde, hem genel eğilimler hem de film türlerinin kültürel popülaritesine dair farklılıklar incelenebilmektedir.
+Ayrıca; tür, puan, yapım yılı, süre ve ödül gibi çok çeşitli değişkenlerin yer alması, daha derinlemesine analitik yaklaşımların uygulanmasını mümkün kılmaktadır.
 
 ### ***2.3 Data Combination Process & Preprocessing***
 
-To create a comprehensive and diverse dataset, we combined two different sources.\
-First, we imported the original *ggplot2movies* dataset, which contains global movie information including variables such as title, year, length, budget, rating, votes, and genre indicators.\
-Second, we processed a Turkish movie dataset, cleaned it, and expanded its structure to match the global dataset's format.
+Kapsamlı ve temsili bir veri seti oluşturmak amacıyla, iki ayrı kaynaktan elde edilen veriler birleştirilmiştir.
+İlk olarak; başlık, yıl, süre, bütçe, IMDb puanı, oy sayısı ve tür gibi temel değişkenleri içeren küresel film bilgilerine sahip `ggplot2movies` veri seti kullanılmıştır.
+İkinci olarak ise, yerel bir Türk filmi veri seti işlenmiş, temizlenmiş ve yapısal olarak küresel veri setiyle uyumlu hale getirilmiştir.
 
-We standardized column names, added missing fields where necessary (e.g., budget, votes, genre dummies), and included a `country` variable to distinguish between Global and Turkish movies.\
-After ensuring consistency across both datasets, we merged them into a single, unified dataset named `combined_movies`.\
-This final dataset preserves authentic movie titles and metadata while also incorporating localized Turkish film information, making it suitable for international and regional analyses.
+Bu süreçte, tüm sütun adları standartlaştırılmış; eksik veri alanları (örneğin bütçe, oy sayısı, tür göstergeleri) uygun şekilde tamamlanmış ve filmlerin kökenini belirtmek üzere bir `country` (ülke) değişkeni eklenmiştir.
+Veri yapılarında tutarlılık sağlandıktan sonra her iki kaynak, `combined_movies` adlı tek birleştirilmiş veri setinde bir araya getirilmiştir.
 
-The combined dataset was saved in both `.RData` and `.csv` formats for flexibility in further exploration and analysis.
+Sonuç olarak oluşturulan bu bütünleşik veri seti, hem orijinal film başlıklarını ve meta verileri korumakta hem de yerel Türk filmlerine ilişkin bilgileri içermektedir.
+**Böylece veri seti, hem uluslararası hem de yerel düzeyde gerçekleştirilecek analizler için uygun ve esnek bir yapıya kavuşmuştur**.
+Analiz ve görselleştirme işlemlerinde kolaylık sağlaması adına, veri seti hem `.RData` hem de `.csv` formatlarında kaydedilmiştir.
 
 ```{r}
+#| code-fold: true
+#| code-summary: "Show data combination process"
 
 
-# 1. Global movies verisini yukle
 load("movies.RData")
 
-# 2. Turkish movies verisini oku
+
 turkish_movies <- read.csv("final_dataset.csv", fileEncoding = "UTF-8")
 
-# 3. Turkish movies verisini genislet
 turkish_movies_expanded <- data.frame(
   title = turkish_movies$localized.title,
   year = as.integer(turkish_movies$runtimes),
@@ -69,35 +102,29 @@ turkish_movies_expanded <- data.frame(
   country = "Turkey"
 )
 
-# 4. Global movies'a country kolonu ekle
 movies$country <- "Global"
 
-# 5. Kolon sD1ralarD1nD1 esitle
 turkish_movies_expanded <- turkish_movies_expanded[, names(movies)]
 
-# 6. Ikisini birlestir
 combined_movies <- rbind(movies, turkish_movies_expanded)
 
-# 7. Kaydet
 save(combined_movies, file = "combined_movies.RData")
 
-# 8. CSV de olustur
 write.csv(combined_movies, file = "combined_movies.csv", row.names = FALSE)
 
 ```
 
-### ***2.4 Data Summary*** 
+### ***2.4 Data Summary***
 
-The final dataset combines global and Turkish movies, resulting in a comprehensive collection of approximately 8,000 films.
+Son oluşturulan veri seti, dünya genelinde ve Türkiye’de yapılmış filmlerin bir araya getirilmesiyle oluşturulmuş olup, yaklaşık 8.000 filme dair detaylı bir koleksiyon barındırmaktadır.
 
-It includes a wide range of information for each movie, covering basic metadata, audience ratings, and genre classifications.
+Bu veri seti; her bir film için temel bilgiler, izleyici değerlendirmeleri ve tür sınıflandırmaları gibi çeşitli bilgileri kapsamaktadır.
 
-The following code blocks provide an overview of the combined movies dataset, including its structure, dimensions, variable names, sample records, and distribution patterns.
+Aşağıda yer alan kod blokları, bu birleştirilmiş film veri setinin yapısı, boyutu, değişken isimleri, örnek kayıtlar ve dağılım desenleri hakkında genel bir bilgi sunmaktadır.
 
-#### Structure of combined_movies dataset
+#### ***Structure of combined_movies dataset***
 
 ```{r}
-
 # Load the combined dataset
 load("combined_movies.RData")
 
@@ -105,7 +132,7 @@ load("combined_movies.RData")
 str(combined_movies)
 ```
 
-#### Number of rows and columns
+#### ***Number of rows and columns***
 
 ```{r}
 
@@ -113,13 +140,12 @@ str(combined_movies)
 dim(combined_movies)
 ```
 
-#### Names of variables
+#### ***Names of variables***
 
 ```{r}
 
 # Names of variables
 names(combined_movies)
-
 ```
 
 #### ***First 6 rows of data***
@@ -133,58 +159,114 @@ head(combined_movies)
 
 ## ***3.Data Analysis***
 
-The analyses presented here are intended solely for illustrative purposes and do not represent a definitive study.
-
-#### ***Top 10 Highest Rated Movies***
+### ***3.1 Top 10 Highest & Most Rated Movies***
 
 ```{r}
-install.packages("dplyr", repos = "https://cloud.r-project.org")
-
-install.packages("ggplot2", repos = "https://cloud.r-project.org")
 
 library(dplyr)
 library(ggplot2)
+library(scales)  
 
-# Top 10 Movies Rating Line Chart 
-movies %>%
-  filter(rating > 0) %>%
+# Top 10 Movies Rating Plot - Star Shaped Points
+combined_movies %>%
+  filter(country == "Global", rating > 0) %>%
   arrange(desc(rating)) %>%
   slice_head(n = 10) %>%
   mutate(title = factor(title, levels = title)) %>%
-  ggplot(aes(x = title, y = rating, group = 1, color = factor(year))) +
-  geom_line(size = 1) +    
-  geom_point(size = 3) +
-  labs(title = "Top 10 Highest Rated Movies (Line Chart)",
+  ggplot(aes(x = title, y = rating, color = factor(year))) +
+  geom_point(size = 4, shape = 8, stroke = 1.5) +  
+  labs(title = "Top 10 Highest Rated Global Movies",
        x = "Movie Title",
-       y = "IMDb Rating") +
-  theme_minimal(base_size = 14) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-
-```
-
-In this line chart, the same top 10 movies are displayed sequentially based on their ratings. The downward movement highlights the slight decrease between consecutive IMDb ratings. Coloring by release year shows the temporal diversity among the highest-rated films.
-
-#### ***Average Rating and Runtime by Country***
-
-```{r}
-
-combined_movies %>%
-  group_by(country) %>%
-  summarize(
-    Average_Rating = round(mean(rating, na.rm = TRUE), 2),
-    Average_Length = round(mean(length, na.rm = TRUE), 1)
+       y = "IMDb Rating",
+       color = "Year") +
+  scale_y_continuous(labels = label_number(accuracy = 0.01)) +  
+  theme_minimal(base_size = 12) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
+    plot.title = element_text(size = 14),
+    legend.title = element_text(size = 12),
+    legend.text = element_text(size = 10)
   )
 
+```
+
+```{r}
+
+library(dplyr)
+library(ggplot2)
+library(scales)  
+
+# Top 10 Movies Rating Plot - Star Shaped Points
+combined_movies %>%
+  filter(country == "Turkey", rating > 0) %>%
+  arrange(desc(rating)) %>%
+  slice_head(n = 10) %>%
+  mutate(title = factor(title, levels = title)) %>%
+  ggplot(aes(x = title, y = rating, color = factor(year))) +
+  geom_point(size = 4, shape = 8, stroke = 1.5) +  
+  labs(title = "Top 10 Highest Rated Global Movies",
+       x = "Movie Title",
+       y = "IMDb Rating",
+       color = "Year") +
+  scale_y_continuous(labels = label_number(accuracy = 0.01)) +  
+  theme_minimal(base_size = 12) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
+    plot.title = element_text(size = 14),
+    legend.title = element_text(size = 12),
+    legend.text = element_text(size = 10)
+  )
 
 ```
 
-#### ***Comparison of IMDb Ratings: Global vs Turkey***
+Bu R kodları, Türkiye ve küresel ölçekteki filmler arasında IMDb puanına göre en yüksek sıralamada yer alan ilk 10 filmi belirleyerek bir grafik oluşturur.
+Grafik, bu filmlerin IMDb puanlarını yatay düzlemde gösterir ve her film, yayınlandığı yıla göre farklı renklerle ifade edilmiştir.
+Böylece hem ülkelere göre en yüksek puanlı filmler görselleştirilmiş olur hem de bu filmlerin hangi yıllarda üretildiği anlaşılır şekilde sunulmaktadır.
 
 ```{r}
-# Sahte bir ulke atamasi 
+library(DT)
+library(dplyr)
+
+# En çok oy alan 10 filmi seç
+top_films <- combined_movies %>%
+  filter(!is.na(title), !is.na(votes), !is.na(rating)) %>%
+  arrange(desc(votes)) %>%
+  slice_head(n = 20) %>%
+  select(title, year, rating, votes)
+
+# Etkileşimli tablo oluştur
+datatable(
+  top_films,
+  options = list(
+    pageLength = 10,
+    autoWidth = TRUE,
+    dom = 't',
+    class = 'stripe hover order-column compact',
+    columnDefs = list(
+      list(className = 'dt-left', targets = "_all")
+    )
+  ),
+  rownames = FALSE,
+  caption = htmltools::tags$caption(
+    style = 'caption-side: top; text-align: left; 
+             font-size: 16px; font-weight: bold; color: black;',
+    '🎬 Top 10 Most Voted Films (IMDb)'
+  )
+) %>%
+  formatStyle(
+    columns = names(top_films),
+    color = 'black',
+    fontWeight = 'normal'
+  )
+
+```
+
+### ***3.2 Comparison of IMDb Ratings: Global vs Turkey***
+
+```{r}
+
 set.seed(42)
-movies_grouped <- movies %>%
+movies_grouped <- combined_movies %>%
   filter(!is.na(rating), !is.na(length)) %>%
   mutate(country = ifelse(runif(n()) > 0.95, "Turkey", "Global"))
 
@@ -197,32 +279,582 @@ ggplot(movies_grouped, aes(x = country, y = rating, fill = country)) +
        x = "Country",
        y = "IMDb Rating") +
   theme_minimal(base_size = 14)
+
 ```
 
-This boxplot compares the IMDb rating distributions between films produced globally and those produced in Turkey. Turkish films show a narrower distribution, while global films cover a broader range of ratings. Mean differences and the presence of outliers provide further insights into rating variability between the two groups.
+Bu kutu grafiği, dünya genelinde üretilen filmler ile Türkiye'de üretilen filmlerin IMDb puanlarının dağılımını karşılaştırmaktadır.
+Türkiye filmleri daha sıkışık bir dağılım sergilerken, dünya filmleri daha geniş bir puan aralığına sahiptir.
 
-***To be continued...***
+Grafiğe göre, dünya genelindeki filmlerin IMDb puanlarının medyan değeri yaklaşık 6.0 iken, Türkiye yapımı filmlerde bu değer 5.5 civarındadır.
+Bu durum, genel olarak dünya filmlerinin biraz daha yüksek değerlendirildiğini göstermektedir.
+Ayrıca, Türkiye filmlerinin kutusunun daha uzun olması, puan dağılımının daha geniş ve değişkenliğin daha fazla olduğunu ortaya koymaktadır.
+Her iki grup benzer şekilde yüksek değerlere ulaşsa da, Türkiye yapımlarında daha düşük puanlara rastlanma olasılığı daha yüksektir.
 
-# 3. Analysis
+### ***3.3 Distribution of IMDb Ratings in Relation to Vote Counts***
 
-xxxxxx
+```{r}
 
-## 3.1 Exploratory Data Analysis
+ggplot(movies_grouped, aes(x = votes, y = rating)) +
+  geom_point(alpha = 0.4, color = "#8e44ad") +
+  scale_x_log10() +
+  labs(
+    title = "Distribution of Votes and IMDb Ratings",
+    x = "Number of Votes (log scale)",
+    y = "IMDb Rating"
+  ) +
+  theme_minimal(base_size = 14)
 
-xxxxxx
+```
 
-## 3.2 Trend Analysis
+Bu grafik, IMDb üzerindeki filmlerin oy sayıları ile aldıkları puanlar arasındaki ilişkiyi sergilemektedir.
+Yatay eksen, filmlerin aldığı oy sayısının logaritmik ölçümünü sunarken; dikey eksende IMDb puanları yer almaktadır.
 
-xxxxxx
+Dikkat çeken nokta, az oy alan filmlerin çok çeşitli puan aralıklarına yayılmasıdır; bu durum, bu filmler hakkında önemli farklılıkların bulunduğunu göstermektedir.
+Ancak oy sayısı arttıkça puanlar daha sınırlı bir aralıkta toplanmakta ve genellikle 6 ila 8 arasında yoğunlaşmaktadır.
+Özellikle 10.000 ve üzeri oy almış filmlerde, puanlar daha tutarlı bir şekilde seyrederken, aşırı düşük veya yüksek puanların sayısının azaldığı göze çarpmaktadır.
+Bu durum, çok sayıda oy alan filmlerin daha geniş bir kitle tarafından değerlendirildiğini ve bu sebeple puanlarının daha dengeli olduğunu ortaya koymaktadır.
 
-## 3.3 Model Fitting
+```{r}
 
-xxxxxx
+library(ggplot2)
+library(dplyr)
 
-## 3.4 Results
+clust_data <- combined_movies %>%
+  select(rating, budget, votes, year, length) %>%
+  filter(across(everything(), ~ !is.na(.))) %>%
+  mutate(
+    log_budget = log10(budget + 1),
+    log_votes = log10(votes + 1)
+  ) %>%
+  select(rating, log_budget, log_votes, year, length)
 
-xxxxxx
+scaled_data <- scale(clust_data)
+set.seed(42)
+k_result <- kmeans(scaled_data, centers = 3)
 
-# 4. Results and Key Takeaways
+plot_data <- clust_data %>%
+  mutate(cluster = as.factor(k_result$cluster))
 
-xxxxxx
+ggplot(plot_data, aes(x = log_votes, y = rating, color = cluster)) +
+  geom_jitter(alpha = 0.4, size = 1.2, width = 0.1) +
+  labs(title = "Improved Cluster Plot: IMDb Rating vs Log(Votes)",
+       x = "Log10(Number of Votes)", y = "IMDb Rating") +
+  scale_color_brewer(palette = "Set1") +
+  theme_minimal(base_size = 13)
+
+
+```
+
+Bu grafik, IMDb puanı ile logaritmik oy sayısı arasındaki bağlantıyı üç farklı grup halinde sunmaktadır.
+Gruplar; film puanı, bütçe, süre ve yıl gibi değişkenler ölçeklendirilerek k-means algoritması kullanılarak oluşturulmuştur.
+
+-   **Kırmızı grup (1)**: Yüksek oy alan ve nispeten yüksek puanlara ulaşan popüler filmleri temsil etmektedir.
+
+-   **Mavi grup (2)**: Ortalama seviyede oy toplayan ve puanları daha dengeli şekilde dağılmış filmleri göstermektedir.
+
+-   **Yeşil grup (3)**: Az oy almasına rağmen yüksek puan alan niş filmleri ifade etmektedir.
+
+Çok oy toplayan tanınmış filmler genellikle yüksek puanlarla öne çıkarken, az oy alan bazı özel filmler de ilginç bir şekilde yüksek puanlar elde etmiştir.
+Bu durum, popülerlik ile kalite arasında her zaman net bir bağ olmadığını göstermektedir.
+
+### ***3.4 IMDb Rating Density by MPAA Rating: A Ridge Plot Visualization***
+
+```{r}
+
+library(ggplot2)
+library(ggridges)
+library(dplyr)
+
+movies_grouped %>%
+  filter(mpaa != "") %>%  # Remove empty values
+  ggplot(aes(x = rating, y = mpaa, fill = mpaa)) +
+  geom_density_ridges(alpha = 0.8, scale = 1.5) +
+  labs(
+    title = "IMDb Rating Density by MPAA Category (Ridge Plot)",
+    x = "IMDb Rating",
+    y = "MPAA Rating"
+  ) +
+  theme_minimal(base_size = 14)
+
+```
+
+**PG – Parental Guidance Suggested (Ebeveyn Rehberliği Önerilir)**\
+**PG-13 – Parents Strongly Cautioned (13 Yaş Altı İçin Uygun Değildir)**\
+**R – Restricted (Kısıtlı):** 17 yaşın altındaki bireylerin bir ebeveyn veya yetişkin refakatinde izlemesi gerekir.\
+**NC-17 – No One 17 and Under Admitted (17 Yaş ve Altı İçin Yasaktır):** 17 yaşın altındaki kişilerin filme hiçbir koşulda girmesi yasaktır.
+
+Bu ridge plot, filmlerin IMDb puanlarının MPAA (Amerikan Film Derecelendirme Sistemi) kategorilerine göre nasıl dağıldığını göstermektedir.
+Görselde, her bir kategori için IMDb puanlarının hangi aralıklarda yoğunlaştığı açıkça görülebilmektedir.
+
+-   **R kategorisindeki filmler** genellikle 6 ile 7 puan arasında toplanmakta ve oldukça yüksek bir ortalamaya sahip bir dağılım sergilemektedir.
+
+-   **PG-13 ve PG kategorisindeki filmler**, daha geniş bir puan aralığına yayılmakta ve çoğunlukla 5 ile 7 puan arasında yoğunlaşmaktadır.
+
+-   **NC-17 kategorisine ait filmler** ise genellikle daha düşük puanlar almış ve bu kategoriye ait yoğunluk eğrisi diğerlerinden daha yayvan ve düşük seviyelerde kalmıştır.
+
+Bu durum, yüksek yaş sınırlamasına sahip filmlerin genellikle izleyici kitlesi tarafından daha düşük bir şekilde değerlendirilebileceğini düşündürmektedir.
+Genel olarak, içerik sınırlamalarının puan dağılımı üzerinde belirgin bir etkisi olduğu gözlemlenmektedir.
+
+### ***3.5 Relationship Between Film Length and IMDb Ratings: A Comparative Sample***
+
+```{r}
+
+library(dplyr)
+library(ggplot2)
+
+# Define vote groups more evenly
+movies_grouped <- movies_grouped %>%
+  mutate(vote_group = case_when(
+    votes < 500 ~ "Low",
+    votes < 5000 ~ "Medium",
+    TRUE ~ "High"
+  ))
+
+# Sample 5 films per vote group for Turkey and Global
+set.seed(123)
+
+turkey_sample <- movies_grouped %>%
+  filter(country == "Turkey") %>%
+  group_by(vote_group) %>%
+  sample_n(size = 5, replace = TRUE)
+
+global_sample <- movies_grouped %>%
+  filter(country == "Global") %>%
+  group_by(vote_group) %>%
+  sample_n(size = 5, replace = TRUE)
+
+# Combine samples
+sampled_movies <- bind_rows(turkey_sample, global_sample)
+
+# Custom vote group colors
+vote_colors <- c("Low" = "#e78ac3",    # Pink
+                 "Medium" = "#80b1d3", # Blue
+                 "High" = "#4daf4a")   # Green
+
+# Plot
+ggplot(sampled_movies, aes(x = length, y = rating, color = vote_group, shape = country)) +
+  geom_point(size = 4, alpha = 0.9) +
+  scale_color_manual(values = vote_colors) +
+  scale_shape_manual(values = c("Global" = 16, "Turkey" = 17)) +
+  labs(
+    title = "Relationship Between Film Duration and IMDb Rating",
+    subtitle = "Color-coded by vote group | Equal samples per group",
+    x = "Film Duration (min)",
+    y = "IMDb Rating",
+    color = "Vote Group",
+    shape = "Country"
+  ) +
+  xlim(0, 150) +
+  theme_minimal(base_size = 14)
+
+
+
+```
+
+Bu grafik, film uzunluğu ile IMDb puanı arasındaki ilişkiyi; oy sayısına (Düşük, Orta, Yüksek) ve ülkeye (Küresel, Türkiye) göre göstermektedir.
+
+Net bir doğrusal ilişki mevcut olmasa da, uzun filmlerin puan aralığı daha geniş bir yelpazeye sahiptir.
+Yüksek oy alan bazı uzun filmler, daha yüksek puanlar elde etmiştir.
+Türkiye'de üretilen filmler genellikle daha kısa ve puanları daha değişkendir.
+Bu durum, film süresinin tek başına belirleyici bir etken olmadığını; oy sayısı ve ülke gibi diğer unsurlarla birlikte ele alınması gerektiğini ortaya koymaktadır.
+
+### ***3.6 Beeswarm Plot of IMDb Ratings by Genre***
+
+```{r}
+
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(ggbeeswarm)
+
+set.seed(123)  # Ensure reproducible sampling
+
+movies_sampled <- movies_grouped %>%
+  pivot_longer(cols = Action:Short, names_to = "Genre", values_to = "IsGenre") %>%
+  filter(IsGenre == 1) %>%
+  group_by(Genre) %>%
+  sample_n(size = 50, replace = TRUE)
+
+ggplot(movies_sampled, aes(x = Genre, y = rating, color = Genre)) +
+  geom_beeswarm(cex = 1.5) +
+  scale_color_brewer(palette = "Set2") +
+  labs(
+    title = "IMDb Rating Distribution by Genre (Beeswarm)",
+    subtitle = "50 films were randomly sampled from each genre",
+    x = "Genre",
+    y = "IMDb Rating"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "none"
+)
+```
+
+Bu beeswarm grafiği, çeşitli film türlerinin IMDb puanlarının dağılımını sunmaktadır.
+Her türden rastgele seçilen 50 film kullanılarak hazırlanan grafik, türler arasındaki puan farklılıklarını ayrıntılı bir şekilde göstermektedir.
+
+Belgesel türündeki filmler genellikle daha yüksek puanlar alırken; komedi ve dram türlerinde puanlar daha geniş bir yelpazede dağılmıştır.
+Animasyon ve romantik türler ise daha dar bir dağılım göstermekte olup, 6–8 aralığında yoğunlaşmaktadır.
+Bu dağılım, türün içeriği ve hedef izleyici kitlesinin, izleyici değerlendirmelerinde belirleyici bir etken olduğunu ortaya koymaktadır.
+
+### ***3.7 Heatmap of Genre Distribution Across IMDb Rating Ranges***
+
+```{r}
+
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+
+heat_data <- movies_grouped %>%
+  pivot_longer(cols = Action:Short, names_to = "Genre", values_to = "IsGenre") %>%
+  filter(IsGenre == 1, !is.na(rating)) %>%
+  mutate(rating_group = cut(rating, breaks = seq(0, 10, 1), include.lowest = TRUE)) %>%
+  count(rating_group, Genre)
+
+ggplot(heat_data, aes(x = Genre, y = rating_group, fill = n)) +
+  geom_tile(color = "grey80") +
+  geom_text(aes(label = n), color = "black", size = 3) +
+  scale_fill_viridis_c(option = "plasma", na.value = "grey90") +
+  labs(
+    title = "Genre Frequency by IMDb Rating Range",
+    subtitle = "Which genres dominate which rating intervals?",
+    x = "Genre",
+    y = "IMDb Rating Range",
+    fill = "Number of Films"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(size = 18, face = "bold"),
+    plot.subtitle = element_text(size = 14)
+)
+```
+
+Bu ısı haritası, farklı film türlerinin IMDb puan aralıklarına göre ne sıklıkta dağıldığını göstermektedir.
+Yatay eksende film türleri, dikey eksende ise IMDb puan dilimleri bulunmaktadır; hücrelerin renkleri ve içindeki sayılar, her puan diliminde bulunan film sayısını temsil etmektedir.
+
+**En yoğun alan, (6,7\] puan aralığındaki Drama filmi sayısıdır** (6726 adet); bu durum, dram türünün genelde orta-yüksek puan aralığında yoğunlaştığını göstermektedir.
+**Komedi ve Belgesel türleri de 6–8 puan aralığında yüksek sayıda filmle dikkat çekmektedir.** Diğer taraftan, 8’in üzerinde yüksek puan alan filmlerin sayısı genel olarak daha azdır ve bu yüksek puanlara en çok ulaşan türler Belgesel, Animasyon ve Drama olmuştur.
+
+**Bu görsel, hangi film türlerinin hangi puan aralıklarında daha fazla yer aldığını açık bir şekilde göstermektedir.**
+
+### ***3.8 IMDb Rating Distributions by Production Budget Groups***
+
+```{r}
+
+movies_grouped %>%
+  filter(!is.na(budget), !is.na(rating)) %>%
+  mutate(budget_group = cut(log10(budget),
+                            breaks = c(2, 5, 6, 7, 8, 9),
+                            labels = c("10^2-10^5", "10^5-10^6", "10^6-10^7", "10^7-10^8", "10^8+"))) %>%
+  filter(!is.na(budget_group)) %>%
+  ggplot(aes(x = rating, fill = budget_group)) +
+  geom_density(alpha = 0.4, color = "black", size = 1) +
+  scale_fill_manual(values = c(
+    "10^2-10^5" = "#F40020",
+    "10^5-10^6" = "#7CAE00",
+    "10^6-10^7" = "#00BFC4",
+    "10^7-10^8" = "#C77CFF",
+    "10^8+"     = "#E6F700")) +
+  labs(
+    title = "Distribution of IMDb Ratings by Budget Group",
+    subtitle = "Budgets categorized by log scale" ,
+    x = "IMDb Rating",
+    y = "Density",
+    fill = "Budget Range"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(legend.text = element_text(size = 12))
+```
+
+Bu grafikte, IMDb puanlarının film bütçesi kategorilerine göre nasıl dağıldığına dair bilgiler yer almaktadır.
+Yüksek bütçeli yapımlar (10⁸+), genellikle 6 ile 8 arasında yoğunlaşarak daha belirgin bir tutarlılık sergilemektedir.
+Orta bütçeli filmler, puanlarını daha dar bir aralıkta toplarken; düşük bütçeli filmlerin puanları ise çok daha dağınık ve dengesiz bir dağılıma sahiptir.
+Bu durum, bütçenin artışıyla birlikte film kalitesinin ve izleyici memnuniyetinin daha tutarlı bir hale geldiğini göstermektedir.
+
+### ***3.9 Average Star Ratings (r1-r10) by Genre***
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+
+# Define rater levels
+rater_levels <- paste0("r", 1:10)
+
+# Prepare data
+line_plot_data <- movies_grouped %>%
+  pivot_longer(cols = r1:r10, names_to = "Rater", values_to = "RaterRating") %>%
+  pivot_longer(cols = Action:Short, names_to = "Genre", values_to = "IsGenre") %>%
+  filter(IsGenre == 1, !is.na(RaterRating)) %>%
+  mutate(Rater = factor(Rater, levels = rater_levels)) %>%
+  group_by(Genre, Rater) %>%
+  summarise(avg_rating = mean(RaterRating, na.rm = TRUE), .groups = "drop")
+
+# Plot
+line_plot <- ggplot(line_plot_data, aes(x = Genre, y = avg_rating, group = Rater, color = Rater)) +
+  geom_line(size = 1.2) +
+  geom_point(size = 2) +
+  labs(
+    title = "Average Star Ratings (r1-r10) Across Genres",
+    subtitle = "Which genres received higher scores from which raters?",
+    x = "Genre",
+    y = "Average Star Rating",
+    color = "Rater"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "right"
+  )
+
+print(line_plot)
+```
+
+**`r1`–`r10` sütunları, IMDb kullanıcılarının bir filme verdikleri yıldız puanlarının dağılımını gösterir. Örneğin, `r1` değeri 10 ise, filme 10 kişinin 1 yıldız verdiği anlamına gelir.**
+
+Bu grafik, IMDb kullanıcılarının film türlerine verdikleri yıldız oylarının dağılımını göstermektedir.
+Özellikle `r9` ve `r10` kullanıcıları, Belgesel ve Kısa filmler için yüksek puanlar (9–10 yıldız) vermiştir.
+Belgesel türü, `r9` kullanıcıları tarafından en fazla beğenilen tür olarak öne çıkarken; Kısa filmler de `r10` grubundan yüksek değerlendirme almıştır.
+
+Düşük yıldız veren gruplar (`r1`–`r3`) genel olarak tüm türlere düşük puanlar verirken, Drama ve Komedi türleri bu gruplardan biraz daha fazla olumsuz geri dönüş almıştır.
+Bu durum, izleyici tercihlerinin yıldız düzeylerine göre türler arasında farklılık gösterdiğini ortaya koymaktadır.
+
+### ***3.10 Most Frequent Words in Movie Titles***
+
+```{r}
+
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(stringr)
+library(ggwordcloud)
+
+# Stopwords to exclude
+remove_words <- c("the", "and", "for", "with", "from", "you", "your", "are", "not", "this", "that", "what", "who", "film", "movie", "its", "was", "has", "have", "one", "all","der","die","les","del","sex","des","das","his","los","las","una","town")
+
+# Tokenize and count words
+word_count <- movies_grouped %>%
+  mutate(title = str_to_lower(title)) %>%
+  mutate(title = str_replace_all(title, "[^a-z0-9\\s]", "")) %>%
+  separate_rows(title, sep = "\\s+") %>%
+  filter(str_length(title) > 2, !(title %in% remove_words)) %>%
+  group_by(title) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count))
+
+# Take top 80 frequent words
+word_count_top <- word_count %>%
+  slice_head(n = 80)
+
+# Word Cloud Visualization
+ggplot(word_count_top, aes(label = title, size = count, color = count)) +
+  geom_text_wordcloud_area(eccentricity = 0.65) +
+  scale_size_area(max_size = 30) +
+  scale_color_viridis_c(option = "turbo") +
+  labs(
+    title = "Most Frequent Words in Movie Titles",
+    subtitle = "Top 100 most frequent words"
+  ) +
+  theme_minimal(base_size = 16) +
+  theme(
+    plot.title = element_text(size = 20, face = "bold"),
+    plot.subtitle = element_text(size = 14)
+)
+```
+
+Bu kelime bulutu, film isimlerinde en çok rastlanan ilk 100 kelimeyi göstermektedir.
+
+Grafikte en dikkat çekici ve büyük harflerle öne çıkan kelimeler arasında; insan temaları, duygular, zaman ve mekân gibi kavramların yer aldığı görülmektedir.
+Bu durum, sinemada anlatılan hikâyelerin sıklıkla bu temalar etrafında şekillendiğini ve izleyiciyle bağ kurmakta önemli rol oynadığını vurgulamaktadır.
+
+```{r}
+
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(stringr)
+
+remove_words <- c("the", "and", "for", "with", "from", "you", "your", "are", "not", "this", "that", "what", "who", "film", "movie", "its", "was", "has", "have", "one", "all", "der", "die", "les", "del", "sex", "des", "das", "his", "los", "las", "una")
+
+# Tokenize and clean
+word_data <- movies_grouped %>%
+  filter(!is.na(rating)) %>%
+  mutate(title = str_to_lower(title)) %>%
+  mutate(title = str_replace_all(title, "[^a-z0-9\\s]", "")) %>%
+  separate_rows(title, sep = "\\s+") %>%
+  filter(str_length(title) > 2, !(title %in% remove_words))
+
+# Top 20 most frequent words
+top_words <- word_data %>%
+  count(title, sort = TRUE) %>%
+  slice_head(n = 20)
+
+# Calculate average rating for top words
+top_word_ratings <- word_data %>%
+  filter(title %in% top_words$title) %>%
+  group_by(title) %>%
+  summarise(
+    avg_rating = mean(rating, na.rm = TRUE),
+    count = n()
+  ) %>%
+  arrange(desc(avg_rating))
+
+# Plot with values
+ggplot(top_word_ratings, aes(x = reorder(title, avg_rating), y = avg_rating)) +
+  geom_col(fill = "#00BFC4") +
+  geom_text(aes(label = round(avg_rating, 2)), hjust = -0.1, size = 3) +
+  coord_flip() +
+  labs(
+    title = "Average IMDb by Most Frequent Title Words",
+    subtitle = "Top-rated words among the 20 most common in movie titles",
+    x = "Word",
+    y = "Average IMDb Rating"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(size = 18, face = "bold"),
+    plot.subtitle = element_text(size = 12)
+)
+```
+
+Bu grafik, film isimlerinde en yaygın 20 terimi barındıran yapımların ortalama IMDb puanlarını göstermektedir.
+“Life”, “Story” ve “Day” kelimeleri geçen filmler, oldukça yüksek ortalama puanlara ulaşmıştır (6.14–6.34 arası).
+Bu durum, başlıklarda yer alan ifadelerin izleyici algısıyla ve beğenileriyle bağlantılı olabileceğini göstermektedir.
+
+## **4. Linear Regression Model**
+
+```{r, message=FALSE}
+
+library(ggplot2)
+library(patchwork)
+
+combined_movies$log_budget <- log10(combined_movies$budget)
+
+base_theme <- theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(size = 13, face = "bold", hjust = 0.5),
+    axis.title = element_text(size = 11),
+    axis.text.x = element_text(angle = 30, hjust = 1),
+    plot.margin = margin(10, 10, 10, 10)
+  )
+
+g1 <- ggplot(combined_movies, aes(x = log_budget, y = rating)) +
+  geom_point(alpha = 0.3, size = 0.5) +
+  geom_smooth(method = "lm", se = TRUE, color = "red") +
+  labs(title = "Log(Budget)", x = "Log10(Budget)", y = "IMDb Rating") +
+  base_theme
+
+g2 <- ggplot(combined_movies, aes(x = votes, y = rating)) +
+  geom_point(alpha = 0.3, size = 0.5) +
+  geom_smooth(method = "lm", se = TRUE, color = "blue") +
+  labs(title = "Votes", x = "Number of Votes", y = "") +
+  base_theme
+
+
+(g1 | g2 ) + 
+  plot_layout(guides = "collect") + 
+  plot_annotation(
+    title = "IMDb Rating Regressions by Predictor",
+    theme = theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold"))
+  )
+
+```
+
+**Bu grafik, IMDb değerlendirme puanlarının bütçe ve oy sayısıyla olan bağlantısını regresyon analizleri aracılığıyla göstermektedir.**
+
+-   **Sol grafikte:** Logaritmik bütçe ile IMDb puanı arasındaki ilişki görülmektedir.
+    Eğilim çizgisi işaret etmektedir ki, bütçedeki artışla birlikte puanlarda hafif bir düşüş eğilimi vardır; ancak bu bağ oldukça zayıf düzeydedir.
+
+-   **Sağ grafikte:** Oy sayısı ile IMDb puanı arasındaki ilişki oldukça güçlü ve olumlu bir karakter sergilemektedir.
+    Oy sayısı arttıkça IMDb puanı da yükselmekte, bu da popüler filmlerin genellikle daha yüksek değerlendirmelere sahip olduğunu ortaya koymaktadır.
+
+**Puanlar açısından oy sayısının etkisi daha belirginken, bütçenin etkisi sınırlı ve negatif bir niteliktedir.**
+
+```{r}
+
+library(dplyr)
+library(car) 
+
+
+movies_model <- combined_movies %>%
+  filter(!is.na(rating), !is.na(budget), !is.na(votes), !is.na(year)) %>%
+  mutate(log_budget = log10(budget + 1))
+
+
+model <- lm(rating ~ log_budget + votes + year, data = movies_model)
+
+summary(model)
+
+vif(model)
+
+par(mfrow = c(2, 2))
+plot(model)
+```
+
+### **4.1 Diagnostic Evaluation of the Linear Regression Model**
+
+**Bu dört grafik, doğrusal regresyon modelinin temel varsayımlarını test etmek için kullanılmaktadır.**
+
+-   **Residuals vs Fitted grafiği**, artıkların tahmin edilen değerlere göre nasıl dağıldığını gösterir.
+    Grafikte hafif bir eğrilik görülmektedir; bu durum, doğrusal ilişki varsayımının tam olarak sağlanmadığını düşündürmektedir.
+
+-   **Normal Q-Q Plot**, artıkların normal dağılıma ne ölçüde uyduğunu göstermektedir.
+    Uç noktalarda sapmalar mevcuttur; bu da artıkların tam anlamıyla normal şekilde dağılmadığını ortaya koyar.
+
+-   **Scale-Location grafiği**, varyansın sabitliğini (homoskedastisite) inceler.
+    Artan tahmin değerleriyle birlikte artıkların yayılımının da arttığı gözlemlenmektedir; bu durum, modelde **heteroskedastisite** (değişken varyans) sorunu olduğunu göstermektedir.
+
+-   **Residuals vs Leverage grafiği**, model üzerindeki etkili gözlemleri belirlemeyi amaçlar.
+    Grafikte bazı gözlemler (örneğin 2979 ve 21798), Cook’s distance sınırını aşmaktadır; bu da bu gözlemlerin model üzerinde orantısız bir etkisi olabileceğini göstermektedir.
+
+| **Tanı Grafiği** | **Amaç** | **Gözlem** | **Yorum** |
+|------------------|------------------|------------------|--------------------|
+| **Residuals vs Fitted** | Doğrusallığı kontrol etmek | Hafif eğrilik gözlemleniyor | Modelde doğrusal olmayan bir ilişki olabilir |
+| **Normal Q-Q Plot** | Artıkların normalliğini değerlendirmek | Uç değerlerde sapma var | Artıklar tam olarak normal dağılmıyor olabilir |
+| **Scale-Location** | Varyansın sabitliğini (homoskedastisite) test etmek | Tahminler arttıkça yayılım da artıyor | Heteroskedastisite (değişken varyans) olabilir |
+| **Residuals vs Leverage** | Aykırı ve etkili gözlemleri tespit etmek | Bazı noktalar Cook's distance sınırını aşıyor (örn. 2979, 21798) | Model üzerinde etkili (influential) gözlemler olabilir |
+
+```{r}
+summary(model)
+
+```
+
+### **4.2 Interpretation of Regression Output**
+
+**`log_budget` katsayısı -0.231 ve istatistiksel olarak anlamlıdır (p \< 0.001).**\
+Bu, bütçe arttıkça IMDb puanının hafifçe azalma eğiliminde olduğunu gösterir.
+Yani, yüksek bütçeli filmler her zaman daha yüksek puan almamaktadır.
+
+**`votes` katsayısı 0.000045 ve oldukça anlamlıdır.**\
+Oy sayısı arttıkça IMDb puanının da artma eğiliminde olduğu görülmektedir.
+Bu, popüler filmlerin genellikle daha yüksek puanlandığını göstermektedir.
+
+### **4.3 Model Performans**
+
+**R² = 0.1104:** Bağımsız değişkenler, IMDb puanlarındaki toplam varyansın yaklaşık %11’ini açıklamaktadır.
+Bu oldukça düşük bir orandır ve filmlerin puanlarını etkileyen birçok başka faktör olduğunu göstermektedir.
+
+**Residual standard error: 1.46** — Ortalama hata yaklaşık 1.46 puan civarındadır.
+
+**F-istatistiği anlamlıdır (p \< 0.001),** yani model genel olarak istatistiksel olarak anlamlıdır.
+
+Modeldeki tüm değişkenler istatistiksel olarak anlamlıdır.
+Ancak düşük R² değeri, IMDb puanlarının yalnızca bütçe, oy sayısı ve yıl gibi faktörlerle tam olarak açıklanamayacağını; hikâye, oyunculuk, yönetmenlik gibi daha soyut değişkenlerin de önemli rol oynadığını göstermektedir.
+
+## **5. Results and Key Takeaways**
+
+Bu çalışmada, global ve yerel film veri kümelerinin bir araya getirilmesiyle oluşturulan detaylı bir veri seti aracılığıyla, çeşitli film türlerinin izleyici değerlendirmeleri üzerindeki etkileri incelenmiştir.
+Yapılan analizler sonucunda bazı önemli sonuçlar ortaya çıkmıştır: Genel eğilimlere bakıldığında, global filmler Türkiye yapımı filmlere oranla daha yüksek ve dengeli IMDb puanları almıştır.
+Ancak bazı yerel yapımlar, az sayıda oy almasına rağmen yüksek puanlar alarak dikkati üzerine çekmiştir.
+Film türlerinin popülaritesi, izleyicilerin değerlendirmelerinde büyük bir öneme sahiptir.
+Belgesel, animasyon ve dram gibi türler genellikle daha yüksek puanlar alırken, bazı türlerde puan dağılımı daha düzensiz olmuştur.
+Oy sayısının, IMDb puanları üzerinde belirgin bir etkisi bulunmaktadır.
+Daha fazla oy alan filmler genellikle daha yüksek ve dengeli puanlar elde ederken, az oy alan filmler daha uç değerler göstermektedir.
+Bu durum, popülaritenin kalite algısını etkileyebileceğini göstermektedir.
+Bütçe ile IMDb puanı arasında doğrudan bir olumlu ilişki kurulamadığı için yüksek bütçeli filmlerin daha yüksek puanlar aldığı hakkında genel düşünce zayıf kalmıştır.
+Ancak, oy sayısı ile puan arasında güçlü ve anlamlı bir ilişki bulunmuştur.
+Film süresi, MPAA kategorileri ve başlıktaki kelimeler gibi diğer faktörlerin de izleyici puanlarını etkileyebileceği gözlemlenmiştir; fakat bu etkilerin çoğu dolaylı veya bağlamsal olarak değerlendirilmiştir.
+Sonuç olarak bu analiz, film değerlendirme süreçlerini etkileyen birçok faktörün bulunduğunu ve bu faktörlerin sadece sayısal verilerle değil, kültürel ve içeriksel bağlamlarla birlikte incelenmesi gerektiğini ortaya koymaktadır.
+Elde edilen bulgular, yapımcılar, dağıtımcılar ve dijital platformlar için izleyici davranışlarını daha iyi anlamak açısından değerli bilgiler sunmaktadır.
